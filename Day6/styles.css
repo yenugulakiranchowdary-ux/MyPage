@@ -1,0 +1,98 @@
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #050404;
+    }
+
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: #060606;
+      color: rgb(254, 250, 250);
+    }
+
+    header h1 {
+      font-size: 25px;
+    }
+
+    nav a {
+      color: rgb(245, 242, 242);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .join-btn {
+      background-color: #0049f2;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .Middle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #525b63;
+      color: white;
+      height: 60vh;
+      text-align: center;
+    }
+
+    .Middle h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .Middle p {
+      max-width: 500px;
+      margin: 10px auto 20px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .Middle button {
+      background-color: #00aaff;
+      border: none;
+      color: rgb(252, 250, 250);
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    
+    .flex-section {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 20px;
+      padding: 40px 60px;
+      background-color: rgb(255, 255, 255);
+    }
+
+    .flex-box {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(232, 3, 3, 0.1);
+    }
+
+    .flex-box h3 {
+      color: #85410a;
+     
+    }
