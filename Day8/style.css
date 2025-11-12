@@ -1,0 +1,105 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: #222;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  color: #38d448;
+}
+
+/* Paragraph styling */
+p {
+  line-height: 1.10;
+  color: #555;
+}
+
+
+/* Descendant selector */
+.box p {
+  font-style: italic;
+  color: rgb(54, 52, 52);
+}
+
+/* Child selector */
+.container  p {
+  font-weight: bold;
+  color: #0b0a0a;
+}
+
+
+h2 + p {
+  color: #c64115;
+  font-style: italic;
+}
+
+
+
+button {
+  margin: 10px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #d46938;
+  border: 1px solid #222;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: #86371a;
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+/* Table */
+table {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #656060;
+}
+
+/* Pseudo elements */
+.quote::before {
+  content: "";
+  color: #d45838;
+  font-size: 20px;
+}
+
+.quote::after {
+  content: "";
+  color: #d45838;
+  font-size: 20px;
+}
+
+/* Navigation buttons */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  background-color: #d45838;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 5px;
+}
+
+.nav a:hover {
+  background-color: #b13d25;
+}
