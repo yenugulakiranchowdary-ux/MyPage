@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS Development</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="css-section">
+  <header>
+    <h1>Web Development - CSS</h1>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="html.html">HTML</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content-section">
+
+    <div class="topic-buttons">
+      <a href="#selectors">Selectors</a>
+      <a href="#colors">Colors</a>
+      <a href="#backgrounds">Backgrounds</a>
+      <a href="#borders">Borders</a>
+      <a href="#boxmodel">Box Model</a>
+      <a href="#shadows">Shadows</a>
+    </div>
+
+    <div id="selectors" class="topic-container">
+      <h2>CSS Development</h2>
+      <h3>1. CSS Selectors</h3>
+      <p>CSS selectors define which HTML elements your styles will apply to. They are the foundation of CSS design.</p>
+      <ul>
+        <li><strong>Universal Selector:</strong> <code>* { margin: 0; padding: 0; }</code></li>
+        <li><strong>Type Selector:</strong> <code>p { color: blue; }</code></li>
+        <li><strong>Class Selector:</strong> <code>.box { background: yellow; }</code></li>
+        <li><strong>ID Selector:</strong> <code>#main { border: 2px solid red; }</code></li>
+        <li><strong>Attribute Selector:</strong> <code>input[type="text"] { border-radius: 5px; }</code></li>
+      </ul>
+      <p>Selectors can be combined for complex targeting. For example, <code>div p</code> applies styles to paragraphs
+        inside divs only.</p>
+      <div class="nav-buttons">
+        <a href="#css-section" class="btn">↑ Back to Top</a>
+        <a href="#colors" class="btn next">Next Topic →</a>
+      </div>
+    </div>
+
+    <div id="colors" class="topic-container">
+      <h3>2. CSS Colors</h3>
+      <p>CSS allows you to apply colors using names, HEX, RGB, RGBA, or HSL values.</p>
+      <ul>
+        <li><strong>Named Color:</strong> <code>color: red;</code></li>
+        <li><strong>HEX Value:</strong> <code>color: #ff0000;</code></li>
+        <li><strong>RGB:</strong> <code>color: rgb(255,0,0);</code></li>
+        <li><strong>RGBA (with transparency):</strong> <code>color: rgba(255,0,0,0.5);</code></li>
+        <li><strong>HSL:</strong> <code>color: hsl(0, 100%, 50%);</code></li>
+      </ul>
+      <p>Colors are not limited to text; you can color borders, backgrounds, and shadows as well.</p>
+      <div class="nav-buttons">
+        <a href="#selectors" class="btn prev">← Previous Topic</a>
+        <a href="#backgrounds" class="btn next">Next Topic →</a>
+      </div>
+    </div>
+
+    <div id="backgrounds" class="topic-container">
+      <h3>3. CSS Backgrounds</h3>
+      <p>Backgrounds enhance the visual appeal of web pages by applying colors, gradients, or images.</p>
+      <p>Examples:</p>
+      <ul>
+        <li><code>background-color: lightblue;</code></li>
+        <li><code>background-image: url('bg.jpg');</code></li>
+        <li><code>background-repeat: no-repeat;</code></li>
+        <li><code>background-size: cover;</code></li>
+        <li><code>background-position: center;</code></li>
+      </ul>
+      <p>CSS gradients allow smooth transitions between colors using <code>linear-gradient()</code> or
+        <code>radial-gradient()</code>.</p>
+      <div class="nav-buttons">
+        <a href="#colors" class="btn prev">← Previous Topic</a>
+        <a href="#borders" class="btn next">Next Topic →</a>
+      </div>
+    </div>
+
+    <div id="borders" class="topic-container">
+      <h3>4. CSS Borders</h3>
+      <p>Borders help visually separate or highlight elements.</p>
+      <p>Examples:</p>
+      <ul>
+        <li><code>border: 2px solid black;</code></li>
+        <li><code>border-radius: 10px;</code></li>
+        <li><code>border-style: dotted dashed solid double;</code></li>
+      </ul>
+      <p>Rounded borders give a modern, soft look to containers.</p>
+      <div class="nav-buttons">
+        <a href="#backgrounds" class="btn prev">← Previous Topic</a>
+        <a href="#boxmodel" class="btn next">Next Topic →</a>
+      </div>
+    </div>
+
+    <div id="boxmodel" class="topic-container">
+      <h3>5. CSS Box Model</h3>
+      <p>The box model explains how every element is a rectangular box with four layers: <strong>content</strong>,
+        <strong>padding</strong>, <strong>border</strong>, and <strong>margin</strong>.</p>
+      <p class="code">div {
+        width: 200px;
+        padding: 20px;
+        border: 5px solid black;
+        margin: 15px;
+        }</p>
+      <p>Understanding the box model helps fix layout issues and design responsive pages.</p>
+      <div class="nav-buttons">
+        <a href="#borders" class="btn prev">← Previous Topic</a>
+        <a href="#shadows" class="btn next">Next Topic →</a>
+      </div>
+    </div>
+
+    <div id="shadows" class="topic-container">
+      <h3>6. CSS Shadows</h3>
+      <p>Shadows add depth and realism to designs. CSS supports both text and box shadows.</p>
+      <p>Examples:</p>
+      <ul>
+        <li><strong>Box Shadow:</strong> <code>box-shadow: 4px 4px 15px rgba(0,0,0,0.3);</code></li>
+        <li><strong>Text Shadow:</strong> <code>text-shadow: 2px 2px 5px gray;</code></li>
+      </ul>
+      <p>Shadows can create soft glowing effects, 3D designs, or floating element visuals.</p>
+      <div class="nav-buttons">
+        <a href="#boxmodel" class="btn prev">← Previous Topic</a>
+        <a href="#css-section" class="btn">↑ Back to Top</a>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="home-button">
+    <a href="index.html" class="btn home">Back to Home</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Web Development Project</p>
+  </footer>
+</body>
+
+</html>
