@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Personal Details</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f4f4f4;
+            
+        }
+
+        .box {
+           
+            width: 350px;
+            padding: 10px 20px;
+            background: rgb(191, 203, 199);
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(188, 19, 120, 0.2);
+            
+            
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background: #2c322f;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            
+        }
+
+        button:hover {
+            background: #00b354;
+            
+        }
+
+        #status {
+            margin-top: 10px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Personal Details</h2>
+        <p id="name"></p>
+        <p id="city"></p>
+        <p id="dob"></p>
+        <p id="phone"></p>
+        <p id="msg"></p>
+        
+
+        <button onclick="changeName()">Change Name</button>
+       
+
+         <p id="status"></p>
+    </div>
+
+    <script>
+
+        
+        const person = {
+            name: "Yenugula Kiran Chowdary",
+            city: "Anantapur",
+            dob: "27-08-1999",
+            phone: "9951856904"
+        };
+
+       
+       
+        let message = "Displaying Personal Details"
+        
+        var updateText = "Updated Name Successfully!";
+
+       
+        function displayDetails() {
+            document.getElementById("name").innerHTML = "Name: " + person.name;
+            document.getElementById("city").innerHTML = "City: " + person.city;
+            document.getElementById("dob").innerHTML = "DOB: " + person.dob;
+            document.getElementById("phone").innerHTML = "Phone: " + person.phone;
+            document.getElementById("status").innerHTML = message;
+        }
+
+        displayDetails();
+        
+
+        
+        function changeName()  {
+    person.name = "Yenugula Kiran";
+    document.getElementById("msg").innerHTML = updateText;
+    displayDetails();
+}
+    
+
+
+    </script>
+
+</body>
+</html>
