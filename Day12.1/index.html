@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Odd Even Checker</title>  
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: left;
+            padding-top: 60px;
+            background-color: aliceblue;
+            
+          
+        }
+
+        .box {
+            padding: 10px;
+            
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <input type="number" id="num" placeholder="Enter number">
+        <button onclick="checkNumber()">Check Number</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkNumber() {
+            let n = document.getElementById("num").value;
+            let result = document.getElementById("result");
+
+            if (n === "") {
+                result.innerHTML = "Please enter a number!";
+                return;
+            }
+
+           
+            if (n % 2 === 0) {
+                document.body.style.background = "#F54927"; 
+                result.innerHTML = n + " is EVEN";
+            } else {
+                document.body.style.background = "#F5B027";
+                result.innerHTML = n + " is ODD";
+            }
+        }
+    </script>
+
+</body>
+</html>
