@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unicode Chessboard Grid</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f0f0d8;
+    font-family: "Segoe UI Symbol", "Noto Sans Symbols", Arial, sans-serif;
+  }
+  .chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    border: 2px solid #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  .square {
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .light {
+    background-color: #f0d9b5;
+  }
+  .dark {
+    background-color: #b58863;
+  }
+</style>
+</head>
+<body>
+
+<div class="chessboard">
+  <!-- Row 8 -->
+  <div class="square dark">&#9820;</div>  <!-- Black rook -->
+  <div class="square light">&#9822;</div> <!-- Black knight -->
+  <div class="square dark">&#9821;</div>  <!-- Black bishop -->
+  <div class="square light">&#9819;</div> <!-- Black queen -->
+  <div class="square dark">&#9818;</div>  <!-- Black king -->
+  <div class="square light">&#9821;</div> <!-- Black bishop -->
+  <div class="square dark">&#9822;</div>  <!-- Black knight -->
+  <div class="square light">&#9820;</div>  <!-- Black rook -->
+
+  <!-- Row 7 -->
+  <div class="square light">&#9823;</div> <!-- Black pawns -->
+  <div class="square dark">&#9823;</div>
+  <div class="square light">&#9823;</div>
+  <div class="square dark">&#9823;</div>
+  <div class="square light">&#9823;</div>
+  <div class="square dark">&#9823;</div>
+  <div class="square light">&#9823;</div>
+  <div class="square dark">&#9823;</div>
+
+  <!-- Row 6 -->
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+
+  <!-- Row 5 -->
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+
+  <!-- Row 4 -->
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+
+  <!-- Row 3 -->
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+  <div class="square light"></div>
+  <div class="square dark"></div>
+
+  <!-- Row 2 -->
+  <div class="square dark">&#9817;</div> <!-- White pawns -->
+  <div class="square light">&#9817;</div>
+  <div class="square dark">&#9817;</div>
+  <div class="square light">&#9817;</div>
+  <div class="square dark">&#9817;</div>
+  <div class="square light">&#9817;</div>
+  <div class="square dark">&#9817;</div>
+  <div class="square light">&#9817;</div>
+
+  <!-- Row 1 -->
+  <div class="square light">&#9814;</div>  <!-- White rook -->
+  <div class="square dark">&#9816;</div>   <!-- White knight -->
+  <div class="square light">&#9815;</div>  <!-- White bishop -->
+  <div class="square dark">&#9813;</div>   <!-- White queen -->
+  <div class="square light">&#9812;</div>  <!-- White king -->
+  <div class="square dark">&#9815;</div>   <!-- White bishop -->
+  <div class="square light">&#9816;</div>  <!-- White knight -->
+  <div class="square dark">&#9814;</div>   <!-- White rook -->
+</div>
+
+</body>
+</html>

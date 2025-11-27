@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14 - 🌞 Light Mode / 🌙 Dark Mode</title>
+
+    <style>
+        :root {
+            --grid-border-color: #28a745;
+            --primary-color: #007BFF;
+            --secondary-color: #6c757d;
+            --text-color: #333333;
+            --background-color: #f0f0f0;
+            --card-background: #ffffff;
+            --box-shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .theme-toggle button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .grid-item {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px var(--box-shadow-color);
+        }
+
+        .grid-item:hover {
+            border-left: 2px solid var(--primary-color);
+            border-right: none;
+            border-bottom: none;
+            border-top: none;
+        }
+
+        .grid-item a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .grid-item.active {
+            background-color: var(--primary-color);
+        }
+
+        .grid-item.active a {
+            color: #ffffff;
+        }
+
+        .new-card {
+            background-color: var(--card-background);
+            border: 2px solid var(--grid-border-color);
+            border-radius: 8px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px var(--box-shadow-color);
+        }
+
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --text-color: #ffffff;
+            --grid-border-color: #90ee90;
+            --box-shadow-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button id="themeButton">🌙 Dark Mode</button>
+    </div>
+
+    <!-- Grid Cards -->
+    <div class="grid-container">
+        <div>
+            <div class="new-card">
+                <img src="../assets/logo.png" alt="Logo" width="60">
+                <h1>Header 1</h1>
+                <p>This is a sample paragraph for the header card.This is a sample paragraph for the header card.This is a sample paragraph for the header card.This is a sample paragraph for the header card.</p>
+            </div>
+        </div>
+        <div>
+            <div class="new-card">
+                <img src="../assets/logo.png" alt="Logo" width="60">
+                <h1>Header 1</h1>
+                <p>This is a sample paragraph for the header card.</p>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="new-card">
+                <img src="../assets/logo.png" alt="Logo" width="60">
+                <h1>Header 1</h1>
+                <p>This is a sample paragraph for the header card.This is a sample paragraph for the header card.This is a sample paragraph for the header card.</p>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="new-card">
+                <img src="../assets/logo.png" alt="Logo" width="60">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const themeButton = document.getElementById('themeButton');
+        const body = document.body;
+
+        themeButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                themeButton.textContent = '🌞 Light Mode';
+            } else {
+                themeButton.textContent = '🌙 Dark Mode';
+            }
+        });
+    </script>
+</body>
+
+</html>
