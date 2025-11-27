@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Calculator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+
+        body {
+            background: linear-gradient( #7F7FD5, #86A8E7, #91EAE4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #e7f0fd;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resetBtn {
+            background-color: #ff4c4c;
+        }
+
+        #resetBtn:hover {
+            background-color: #c0392b;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>Marks Calculator</h2>
+
+        <input type="text" id="name" placeholder="Enter Student Name">
+
+        <input type="number" id="sub1" placeholder="Enter Subject 1 Marks">
+        <input type="number" id="sub2" placeholder="Enter Subject 2 Marks">
+        <input type="number" id="sub3" placeholder="Enter Subject 3 Marks">
+
+        <button onclick="calculate()">Calculate</button>
+        <button id="resetBtn" onclick="resetForm()">Reset</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+
+            let studentName = document.getElementById("name").value;
+            let m1 = Number(document.getElementById("sub1").value);
+            let m2 = Number(document.getElementById("sub2").value);
+            let m3 = Number(document.getElementById("sub3").value);
+
+            if(studentName === ""){
+                alert("Please Enter Student Name!");
+                return;
+            }
+
+            let total = m1 + m2 + m3;
+            let average = total / 3;
+
+            let grade = "";
+            if (average >= 75) grade = "A";
+            else if (average >= 60) grade = "B";
+            else if (average >= 50) grade = "C";
+            else grade = "Fail";
+
+            document.getElementById("result").innerHTML = `
+                Name : ${studentName} <br><br>
+                Total : ${total} <br>
+                Average : ${average.toFixed(2)} <br>
+                Grade : ${grade}
+            `;
+        }
+
+        function resetForm() {
+            document.getElementById("name").value = "";
+            document.getElementById("sub1").value = "";
+            document.getElementById("sub2").value = "";
+            document.getElementById("sub3").value = "";
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+
+</body>
+</html>
