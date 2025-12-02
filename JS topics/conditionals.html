@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditionals Topics Demo</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f0f7ff;
+        padding: 20px;
+    }
+    h2 {
+        background: #007bff;
+        color: white;
+        padding: 12px;
+        border-radius: 6px;
+        text-align: center;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: none;
+        background: #007bff;
+        color: white;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #005fcc;
+    }
+    p {
+        background: white;
+        padding: 10px;
+        border-left: 5px solid #007bff;
+        border-radius: 5px;
+        margin-top: 8px;
+        font-size: 18px;
+    }
+</style>
+
+</head>
+<body>
+
+<h2>JavaScript Conditionals - Topics</h2>
+<div id="output"></div>
+
+<button onclick="topic1()">if</button>
+<button onclick="topic2()">if-else</button>
+<button onclick="topic3()">else-if</button>
+<button onclick="topic4()">nested if</button>
+<button onclick="topic5()">Logical Operators</button>
+<button onclick="topic6()">switch</button>
+<button onclick="topic7()">Ternary Operator</button>
+
+<script>
+const out = document.getElementById("output");
+let marks = 75;
+let age = 20;
+let day = 3;
+let grade;
+
+
+function clearOut(){
+    out.innerHTML = "";
+}
+
+function topic1(){
+    clearOut();
+    if(marks > 50){
+        out.innerHTML += "<p>Marks greater than 50 → Pass</p>";
+    }
+}
+
+function topic2(){
+    clearOut();
+    if(age >= 18){
+        out.innerHTML += "<p>Eligible for Voting ✔</p>";
+    } else {
+        out.innerHTML += "<p>Not Eligible ❌</p>";
+    }
+}
+
+function topic3(){
+    clearOut();
+    if(marks >= 90) grade = "A+";
+    else if(marks >= 75) grade = "A";
+    else if(marks >= 60) grade = "B";
+    else grade = "C";
+    out.innerHTML += "<p>Grade: " + grade + "</p>";
+}
+
+function topic4(){
+    clearOut();
+    let user = "admin", pass = "12345";
+    if(user == "admin"){
+        if(pass == "12345"){
+            out.innerHTML += "<p>Login Successful 👍</p>";
+        }
+    }
+}
+
+function topic5(){
+    clearOut();
+    if(marks > 60 && age >= 18){
+        out.innerHTML += "<p>Eligible for Scholarship (&& used)</p>";
+    }
+    if(marks < 50 || age < 18){
+        out.innerHTML += "<p>Need Improvement (|| used)</p>";
+    }
+}
+
+function topic6(){
+    clearOut();
+    switch(day){
+        case 1:
+            out.innerHTML += "<p>Monday</p>";
+            break;
+        case 2:
+            out.innerHTML += "<p>Tuesday</p>";
+            break;
+        case 3:
+            out.innerHTML += "<p>Wednesday</p>";
+            break;
+        case 4:
+            out.innerHTML += "<p>Thursday</p>";
+            break;
+        case 5:
+            out.innerHTML += "<p>Friday</p>";
+            break;
+        case 6:
+            out.innerHTML += "<p>Saturday</p>";
+            break;
+        case 7:
+            out.innerHTML += "<p>Sunday</p>";
+            break;
+        default:
+            out.innerHTML += "<p>Invalid day</p>";
+    }
+}
+
+function topic7(){
+    clearOut();
+    // Ternary example using marks
+    let result = marks >= 50 ? "Pass (Ternary Operator)" : "Fail (Ternary Operator)";
+    out.innerHTML += "<p>" + result + "</p>";
+}
+
+</script>
+</body>
+</html>

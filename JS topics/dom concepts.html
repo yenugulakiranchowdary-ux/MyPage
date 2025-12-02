@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Topics Demo</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eef7ff;
+    padding: 20px;
+}
+h2 {
+    background: #007bff;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button:hover { background: #005fcc; }
+p, .box, .msg {
+    background: white;
+    padding: 10px;
+    border-left: 5px solid #007bff;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+.box {
+    width: 200px;
+    height: 100px;
+    background: yellow;
+}
+</style>
+</head>
+<body>
+
+<h2>DOM Topics - Practical Output</h2>
+
+<p id="demo">This is Sample Paragraph</p>
+<div id="box" class="box">Sample Box</div>
+
+<div id="output"></div>
+
+<button onclick="topic1()">document.title</button>
+<button onclick="topic2()">getElementById()</button>
+<button onclick="topic3()">innerHTML change</button>
+<button onclick="topic4()">Change CSS Style</button>
+<button onclick="topic5()">createElement() & appendChild()</button>
+<button onclick="topic6()">remove() Element</button>
+<button onclick="topic7()">Add Event (Click)</button>
+
+<script>
+const out = document.getElementById("output");
+function clearOut(){ out.innerHTML = ""; }
+
+//  document.title
+function topic1(){
+    clearOut();
+    out.innerHTML += "<p>Page Title: " + document.title + "</p>";
+}
+
+//  getElementById
+function topic2(){
+    clearOut();
+    let txt = document.getElementById("demo").innerText;
+    out.innerHTML += "<p>Selected Text: " + txt + "</p>";
+}
+
+//  innerHTML change
+function topic3(){
+    clearOut();
+    document.getElementById("demo").innerHTML = "Text <strong>Updated ✔</strong>";
+    out.innerHTML += "<p>Paragraph Text Updated ✔</p>";
+}
+
+//  Change CSS Style
+function topic4(){
+    clearOut();
+    const b = document.getElementById("box");
+    b.style.background = "lightgreen";
+    b.style.borderRadius = "10px";
+    out.innerHTML += "<p>CSS Changed Successfully</p>";
+}
+
+// createElement + appendChild
+function topic5(){
+    clearOut();
+    const newp = document.createElement("p");
+    newp.innerText = "New Element Added ✔";
+    document.body.appendChild(newp);
+    out.innerHTML += "<p>New Element Created and Added ✔</p>";
+}
+
+//  remove() Element
+function topic6(){
+    clearOut();
+    const b = document.getElementById("box");
+    b.remove();
+    out.innerHTML += "<p>Box Element Removed </p>";
+}
+
+// Add Event
+function topic7(){
+    clearOut();
+    document.getElementById("demo").onclick = function(){
+        out.innerHTML += "<p>You Clicked Paragraph! 🖱</p>";
+    };
+    out.innerHTML += "<p>Click Event Added! Now Click Paragraph</p>";
+}
+</script>
+
+</body>
+</html>

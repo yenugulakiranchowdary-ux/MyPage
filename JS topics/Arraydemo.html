@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Array Topics Demo</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f8ff;
+        padding: 20px;
+    }
+    h2 {
+        text-align: center;
+        background: #007bff;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        margin-top: 10px;
+        border: none;
+        background: #007bff;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #005fcc;
+    }
+    p {
+        background: #fff;
+        padding: 10px;
+        border-left: 5px solid #007bff;
+        border-radius: 5px;
+        margin-top: 5px;
+        font-size: 18px;
+    }
+</style>
+
+</head>
+<body>
+
+<h2>JavaScript Array Topics</h2>
+
+<div id="output"></div>
+
+<!-- Buttons -->
+<button onclick="topic1()"> Create Array</button>
+<button onclick="topic2()"> Access Elements</button>
+<button onclick="topic3()">Update Value</button>
+<button onclick="topic4()">Array Length</button>
+<button onclick="topic5()">Loop</button>
+<button onclick="topic6()">push() - Add Last</button>
+<button onclick="topic7()">pop() - Remove Last</button>
+<button onclick="topic8()">unshift() - Add First</button>
+<button onclick="topic9()">shift() - Remove First</button>
+<button onclick="topic10()">indexOf()</button>
+<button onclick="topic11()">splice()</button>
+<button onclick="topic12()">slice()</button>
+
+<script>
+let fruits = ["Apple", "Banana", "Mango"];
+const out = document.getElementById("output");
+
+function clearOutput() { out.innerHTML = ""; }
+
+function topic1() {
+    clearOutput();
+    out.innerHTML += "<p>Array: " + fruits + "</p>";
+}
+
+function topic2() {
+    clearOutput();
+    out.innerHTML += "<p>First Fruit: " + fruits[0] + "</p>";
+    out.innerHTML += "<p>Third Fruit: " + fruits[2] + "</p>";
+}
+
+function topic3() {
+    clearOutput();
+    fruits[1] = "Grapes";
+    out.innerHTML += "<p>Updated Array: " + fruits + "</p>";
+}
+
+function topic4() {
+    clearOutput();
+    out.innerHTML += "<p>Array Length: " + fruits.length + "</p>";
+}
+
+function topic5() {
+    clearOutput();
+    let list = "";
+    for(let i=0; i<fruits.length; i++){
+        list += fruits[i] + " ";
+    }
+    out.innerHTML += "<p>Loop Output: " + list + "</p>";
+}
+
+function topic6() {
+    clearOutput();
+    fruits.push("Orange");
+    out.innerHTML += "<p>After push(): " + fruits + "</p>";
+}
+
+function topic7() {
+    clearOutput();
+    fruits.pop();
+    out.innerHTML += "<p>After pop(): " + fruits + "</p>";
+}
+
+function topic8() {
+    clearOutput();
+    fruits.unshift("Pineapple");
+    out.innerHTML += "<p>After unshift(): " + fruits + "</p>";
+}
+
+function topic9() {
+    clearOutput();
+    fruits.shift();
+    out.innerHTML += "<p>After shift(): " + fruits + "</p>";
+}
+
+function topic10() {
+    clearOutput();
+    out.innerHTML += "<p>Index of Mango: " + fruits.indexOf("Mango") + "</p>";
+}
+
+function topic11() {
+    clearOutput();
+    fruits.splice(1, 1);
+    out.innerHTML += "<p>After Removing index 1: " + fruits + "</p>";
+    fruits.splice(1, 0, "Papaya");
+    out.innerHTML += "<p>After Adding Papaya at index 1: " + fruits + "</p>";
+}
+
+function topic12() {
+    clearOutput();
+    let sliced = fruits.slice(0, 2);
+    out.innerHTML += "<p>Slice 0-2 copy: " + sliced + "</p>";
+}
+</script>
+
+</body>
+</html>
