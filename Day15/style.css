@@ -329,6 +329,7 @@ tr:last-child td {
 .footer-section {
     background: linear-gradient(90deg, #2b0064, #4b007d);
     padding: 60px 80px;
+   
 }
 
 .footer-container {
@@ -504,4 +505,751 @@ tr:last-child td {
         text-align: center;
         gap: 20px;
     }
+}
+
+
+
+
+/* ---------- COMPANY PAGE ---------- */
+
+.company-hero {
+    text-align: center;
+    padding: 80px;
+    background: linear-gradient(90deg, #2b0064, #4b007d);
+}
+
+.company-hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.company-hero p {
+    margin-top: 12px;
+    font-size: 18px;
+    color: #f1e8ff;
+}
+
+.company-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px;
+    background: #0b0042;
+}
+
+.info-box {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 15px;
+    width: 280px;
+    text-align: center;
+}
+
+.info-box h2 {
+    margin-bottom: 12px;
+    color: #15ff87;
+}
+
+.global {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    background: #0b0038;
+}
+
+.global-left {
+    width: 50%;
+}
+
+.global-left h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.global-left li {
+    margin: 8px 0;
+    font-size: 17px;
+    color: #ccc;
+}
+
+.global-right img {
+    width : 380px;
+    border-radius: 20px;
+}
+
+
+
+
+/* WHY CHOOSE US */
+.why-choose {
+    background:#0b0042;
+    text-align:center;
+    padding:60px 20px;
+    color:#fff;
+}
+.why-container {
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+.why-box {
+    width:230px;
+    background:rgba(255,255,255,0.06);
+    padding:18px;
+    border-radius:10px;
+}
+
+/* TIMELINE */
+.timeline {
+    background:#10004a;
+    text-align:center;
+    padding:60px 20px;
+    color:#fff;
+}
+.timeline ul {
+    list-style:none;
+    line-height:2;
+    max-width:600px;
+    margin:auto;
+}
+.timeline span {
+    color:#15ff87;
+    font-weight:700;
+}
+
+/* LEADERS */
+.leadership {
+    background:#0b0038;
+    text-align:center;
+    padding:60px 20px;
+}
+.leaders {
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+.leader-card {
+    width:240px;
+    background:rgba(255,255,255,0.05);
+    border-radius:16px;
+    padding:20px;
+}
+.leader-card img {
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:12px;
+}
+.leader-card h4 {
+    margin-top:10px;
+}
+.leader-card:hover {
+    transform:translateY(-10px);
+    box-shadow:0 0 18px #15ff87;
+
+}
+
+/* PARTNERS */
+.partners {
+    background:#0b0042;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.partner-logos {
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:1px;
+}
+
+.partner-logos img {
+    width: 200px;
+    opacity: 0.8;
+}
+
+/* SECURITY */
+.security-compliance {
+    background:#10004a;
+    text-align:center;
+    padding:60px 20px;
+}
+.security-compliance ul {
+    list-style:none;
+    line-height:1.8;
+}
+
+.footer-bottom {
+   margin-top: 30px;
+    
+    
+}
+
+
+
+
+
+/* ---------- ABOUT PAGE ---------- */
+
+.about-hero {
+    text-align: center;
+    padding: 80px;
+    background: linear-gradient(90deg, #4b007d, #2b0064);
+}
+
+.about-hero h1 {
+    font-size: 45px;
+    font-weight: 800;
+}
+
+.about-hero p {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #e2d1ff;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 70px 80px;
+    align-items: center;
+    gap: 50px;
+}
+
+
+.about-right h2 {
+    margin-bottom: 8px;
+    font-size: 26px;
+    color: #15ff87;
+}
+
+.about-right p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.about-highlights {
+    display: flex;
+    gap: 45px;
+    margin-top: 20px;
+}
+
+.highlight-box {
+    background: rgba(255,255,255,0.08);
+    text-align: center;
+    padding: 18px;
+    border-radius: 12px;
+    width: 150px;
+}
+
+.highlight-box strong {
+    font-size: 30px;
+    color: #15ff87;
+}
+
+.highlight-box span {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* LEARN & GROW SECTION */
+.learn-grow {
+    padding: 80px 10%;
+    background: #10003c;
+    text-align: center;
+    color: white;
+}
+
+.learn-grow h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #15ff87;
+}
+
+.lg-sub {
+    font-size: 18px;
+    color: #cfc9e8;
+    width: 70%;
+    margin: auto;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+.lg-container {
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.lg-card {
+    width: 280px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 14px;
+    padding: 25px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.3s;
+}
+
+.lg-card img {
+    width: 65px;
+    margin-bottom: 18px;
+}
+
+.lg-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #15ff87;
+}
+
+.lg-card p {
+    font-size: 14px;
+    color: #cfc9e8;
+    line-height: 1.5;
+}
+
+.lg-card:hover {
+    transform: translateY(-6px);
+    border-color: #15ff87;
+}
+
+
+
+
+/* FAST TRADE SECTION */
+.fast-trade {
+    padding: 80px 10%;
+    text-align: center;
+    background: #0b0033;
+}
+
+.fast-trade h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #15ff87;
+}
+
+.ft-sub {
+    font-size: 18px;
+    width: 70%;
+    margin: auto;
+    color: #cfc9e8;
+    line-height: 1.6;
+    margin-bottom: 45px;
+}
+
+.ft-stats {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.ft-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    width: 250px;
+    padding: 25px 10px;
+    backdrop-filter: blur(6px);
+    transition: 0.3s;
+}
+
+.ft-box h3 {
+    font-size: 28px;
+    color: #15ff87;
+    margin-bottom: 10px;
+}
+
+.ft-box p {
+    font-size: 14px;
+    color: #cfc9e8;
+}
+
+.ft-box:hover {
+    transform: translateY(-6px);
+    border-color: #15ff87;
+}
+
+
+
+
+/* ---------- PRICING PAGE ---------- */
+
+.pricing-hero {
+    text-align: center;
+    padding: 70px;
+    background: linear-gradient(90deg, #4b007d, #2b0064);
+}
+
+.pricing-hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.pricing-hero p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #eee;
+}
+
+.pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 70px 20px;
+    background: #0b0038;
+}
+
+.price-card {
+    width: 260px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.price-card h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #15ff87;
+}
+
+.price {
+    font-size: 36px;
+    font-weight: 900;
+    margin: 15px 0;
+}
+
+.price span {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.price-card ul {
+    list-style: none;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.price-card button {
+    padding: 10px 30px;
+    border: none;
+    background: #2419ba;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.price-card:hover {
+    transform: scale(1.05);
+    background: rgba(161, 113, 113, 0.1);
+}
+
+.best {
+    background: #2419ba;
+    border: 2px solid #15ff87;
+}
+
+.best h2 {
+    color: #fff;
+}
+
+.best button {
+    background: #15ff87;
+    color: #111;
+}
+
+
+
+
+
+
+/* BENEFITS */
+.pricing-benefits {
+    padding: 60px 10%;
+    text-align: center;
+}
+.pricing-benefits h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+.benefit-grid {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    line-height: 30px;
+}
+.benefit {
+    width: 250px;
+    padding: 18px;
+    text-align: left;
+    background: rgba(255,255,255,0.05);
+    border-radius: 14px;
+}
+
+/* PRICING TABLE */
+.pricing-table {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.pricing-table h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.pricing-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.pricing-table th,
+.pricing-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    font-size: 14px;
+}
+
+.pricing-table th:first-child,
+.pricing-table td:first-child {
+    text-align: left;
+}
+
+.pricing-table thead {
+    background: rgba(255,255,255,0.08);
+}
+
+.pricing-table tbody tr:hover {
+    background: rgba(255,255,255,0.04);
+}
+
+.pricing-table .note {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #cfc9e8;
+}
+
+
+
+/* ---------- TEAM PAGE ---------- */
+
+.team-hero {
+    text-align: center;
+    padding: 70px;
+    background: linear-gradient(90deg, #2b0064, #4b007d);
+}
+
+.team-hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.team-hero p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #eee;
+}
+
+.team-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 70px 20px;
+    background: #0b0036;
+}
+
+.team-card {
+    width: 230px;
+    background: rgba(255,255,255,0.06);
+    text-align: center;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.team-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.team-card h3 {
+    margin-bottom: 5px;
+    color: #15ff87;
+}
+
+.team-card p {
+    font-size: 14px;
+    color: #dcdcdc;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 18px #15ff87;
+}
+
+
+/* CONTACT HERO */
+.contact-hero {
+    text-align: center;
+    padding: 80px 10%;
+}
+.contact-hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+}
+.contact-hero p {
+    width: 70%;
+    margin: 15px auto;
+    color: #cfc9e8;
+    font-size: 18px;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 10%;
+    gap: 40px;
+}
+
+/* FORM BOX */
+.contact-form {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    padding: 30px;
+    border-radius: 14px;
+}
+.contact-form h2 {
+    margin-bottom: 20px;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 16px;
+}
+.contact-form button {
+    width: 100%;
+    padding: 14px;
+    background: #2419ba;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+}
+.contact-form button:hover {
+    background: #15ff87;
+    color: black;
+}
+
+/* INFO BOX */
+.contact-info {
+    flex: 1;
+}
+.contact-info h2 {
+    margin-bottom: 15px;
+}
+.contact-info p {
+    margin: 10px 0;
+    color: #cfc9e8;
+}
+
+
+/* BLOG HERO */
+.blog-hero {
+    text-align: center;
+    padding: 70px 10%;
+}
+.blog-hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+}
+.blog-hero p {
+    margin-top: 10px;
+    color: #cfc9e8;
+}
+
+/* BLOG CARDS */
+.blog-list {
+    padding: 40px 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.blog-card {
+    display: flex;
+    gap: 20px;
+    background: rgba(255,255,255,0.05);
+    padding: 18px;
+    border-radius: 14px;
+}
+.blog-card img {
+    width: 260px;
+    height: 170px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+.blog-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.blog-content p {
+    color: #dcd6ff;
+    margin-bottom: 12px;
+}
+.blog-content span {
+    font-size: 14px;
+    color: #a48cd1;
+}
+
+/* DETAILED BLOG CONTENT */
+
+.blog-content {
+    padding: 50px 10%;
+    line-height: 1.7;
+}
+.blog-content h2, .blog-content h3 {
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+.blog-content ul {
+    margin: 12px 0 20px 20px;
+}
+.blog-content ul li {
+    margin: 8px 0;
 }
