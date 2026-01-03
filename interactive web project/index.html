@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interactive Web Project</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Interactive Web Project</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Dynamic</a>
+    <a href="#">Timer</a>
+    <a href="#contact">Contact Form</a>
+  </nav>
+</header>
+
+<hr>
+
+<section class="section-row">
+  <div class="left">
+    <h2>About This Project</h2>
+    <p>This is a sample interactive web page built using HTML and JavaScript.<br>
+    It features dynamic content manipulation,<br> form validation, and local storage.</p>
+
+    <h3>Features Demonstrated:</h3>
+    <ul>
+      <li>DOM manipulation</li>
+      <li>Form validation</li>
+      <li>Event-handling</li>
+      <li>Dynamic content-updates</li>
+      <li>Local storage</li>
+    </ul>
+  </div>
+
+  <div class="right">
+    <h2>Feat Hessions & Videos</h2>
+
+    <iframe
+      id="mapRight"
+      src="https://www.google.com/maps?q=108/43%20Vijaya%20Lakshmi%20Enclave%2C%201st%20Floor%2C%20H%20No%202%2C%20PJR%20Enclave%20Road%2C%20Gangaram%2C%20ICRISAT%20Colony%2C%20Hyderabad%2C%20Telangana%20500050&output=embed">
+    </iframe>
+
+    <button class="btn" onclick="toggleMap('mapRight')">Toggle Map</button>
+  </div>
+</section>
+
+<hr>
+
+<section class="flex">
+  <div>
+    <h2>Interactive To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="New Task...">
+    <button class="btn" onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+    <p class="note">Tasks are saved in your browser's local storage.</p>
+    <button class="btn" onclick="clearTasks()">Clear All Tasks</button>
+  </div>
+
+  <div>
+    <h2>Auto-Updating Timer</h2>
+    <p>This counter auto-updates every second:</p>
+    <h3 id="timer">Time elapsed: 00:00:00</h3>
+    <button class="btn" onclick="pauseTimer()">Pause Timer</button>
+    <button class="btn" onclick="resetTimer()">Reset Timer</button>
+  </div>
+</section>
+
+<hr>
+
+<section class="section-row">
+  <div class="left">
+    <h2>Feat Hessions & Videos</h2>
+
+    <iframe
+      id="mapLeft"
+      src="https://www.google.com/maps?q=108/43%20Vijaya%20Lakshmi%20Enclave%2C%201st%20Floor%2C%20H%20No%202%2C%20PJR%20Enclave%20Road%2C%20Gangaram%2C%20ICRISAT%20Colony%2C%20Hyderabad%2C%20Telangana%20500050&output=embed">
+    </iframe>
+
+    <button class="btn" onclick="toggleMap('mapLeft')">Toggle Map</button>
+  </div>
+
+
+
+  <div class="right" id="contact">
+    <h2>Contact Form</h2>
+
+    <label>Name:</label>
+    <input id="name">
+    <small id="nameError"></small>
+
+    <label>Email:</label>
+    <input id="email">
+    <small id="emailError"></small>
+
+    <label>Password:</label>
+    <input type="password" id="password">
+    <small id="passwordError"></small>
+
+    <label>Message:</label>
+    <textarea></textarea>
+
+    <button class="btn" onclick="clearForm()">Clear Data</button>
+    <p class="success">Your information is saved in this browser!</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 Interactive Web Project | Your email: user@example.com</p>
+</footer>
+
+</body>
+</html>

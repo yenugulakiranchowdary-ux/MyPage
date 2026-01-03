@@ -1,0 +1,74 @@
+body {
+  font-family: Arial;
+  margin: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #3366cc;
+  text-decoration: none;
+}
+
+.section-row, .flex {
+  display: flex;
+  gap: 40px;
+}
+
+
+
+.left iframe,
+.right iframe {
+  width: 100%;
+  height: 230px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.left .btn,
+.right .btn {
+  margin-top: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 6px;
+  margin: 5px 0;
+}
+
+.btn {
+  padding: 8px 16px;
+  margin-top: 6px;
+  
+  background: #3366cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #254fa0;
+}
+
+.note {
+  background: #fff8cc;
+  padding: 8px;
+}
+
+.success {
+  color: green;
+}
+
+small {
+  color: red;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+}
