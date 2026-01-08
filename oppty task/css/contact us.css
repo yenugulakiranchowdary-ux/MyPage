@@ -412,93 +412,189 @@ body {
 }
 
 .pricing-section {
-  text-align:center;
-  padding:80px 5%;
+  padding: 80px 60px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.pricing-tag {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.pricing-title {
+  margin-top: 10px;
+  font-size: 35px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.pricing-title span {
+  color: #ff7a00;
 }
 
 
-.pricing-section h2 span { color:#ff7a00; }
+.billing-toggle {
+  margin: 30px 0 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
 
-.toggle{
-  margin:30px 0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.billing-toggle span{
+  color:#0f0f0f;
+  font-weight:600;
+}
+
+.switch {
+  position: relative;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #111827;
+  border-radius: 20px;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #fbbf24;
+  border-radius: 50%;
+  top: 3px;
+  left: 4px;
+}
+
+
+.pricing-cards {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  height:80vh;
+  gap: 30px;
+  justify-content: center;
+}
+
+.price-card {
+  width: 320px;
   gap:10px;
+  line-height: 2;
+  background: #f3f3f3;
+  padding: 40px 30px;
+  text-align: center;
 }
 
-.switch{
-  width:60px;
-  height:28px;
-  background:#222;
-  border-radius:50px;
-  cursor:pointer;
+.price-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color:#0f0f0f;
+}
+
+.divider {
+  width: 120px;
+  height: 1px;
+  background: #111;
+  margin: 0 auto 30px;
+}
+
+.price-card h4 {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color:#0f0f0f;
+}
+
+.price-card ul {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.price-card li {
+  margin-bottom: 14px;
+  font-size: 14px;
+  color:#333;
+}
+
+.price-card i {
+  color: #ff7a00;
+  margin-right: 8px;
+}
+
+
+.btn-dark {
+  background: #111827;
+  color: #ffffff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.terms {
+  margin-top: 14px;
+  font-size: 12px;
+  color:#333;
+}
+
+.price-card.featured{
+  background: linear-gradient(180deg, #fada1b, #e8aa8c);
+  border-radius: 0 0 0 140px;
+}
+
+.price-card:not(.featured):hover {
+  background: linear-gradient(180deg, #fada1b, #e8aa8c);
+  border-radius: 0 0 0 140px;
+}
+
+.custom-plan{
+  width:100%;
+  padding:30px 0;
+  background:#f6f6f6;
+  text-align:center;
+}
+
+.custom-plan p{
+  font-size:16px;
+  color:#111;
+}
+
+.custom-link{
+  margin-left:6px;
+  font-weight:600;
+  color:#ff7a00;
+  text-decoration:none;
   position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:0.3s;
 }
 
-.switch .circle{
-  width:22px;
-  height:22px;
-  background:linear-gradient(45deg,#ffdd00,#f7a072);
-  border-radius:50%;
-  position:absolute;
-  top:3px;
-  left:3px;
-  transition:.4s;
-}
-
-.cards{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-}
-
-.hidden{ display:none; }
-
-.card{
-  width:280px;
-  padding:40px 25px;
-  background:#f5f5f5;
-  border-radius:12px;
-  position:relative;
-  overflow:hidden;
-  transition:.4s;
-}
-
-/* BOTTOM CURVE */
-.card::after{
-  content:'';
-  position:absolute;
-  width:200%;
-  height:200%;
-  background:linear-gradient(45deg,#ffdd00,#f7a072);
-  bottom:-180%;
-  left:-50%;
-  border-radius:50%;
-  transition:.5s;
-}
-
-.card:hover::after{
-  bottom:-90%;
-}
-
-.card *{ position:relative; z-index:2; }
-
-.card:hover{ transform:translateY(-10px); }
-
-.featured{
-  background:linear-gradient(45deg,#ffdd00,#f7a072);
-  border-radius:0 0 0 120px;
+.custom-link span{
+  display:inline-block;
+  transition:0.3s;
 }
 
 
-button{
-  background:#222;
-  color:#fff;
-  border:none;
-  padding:10px 25px;
-  border-radius:30px;
-  cursor:pointer;
+.custom-link:hover{
+  color:#000;
+}
+
+.custom-link:hover span{
+  transform:translateX(6px);
 }
 .custom-plan{
   width:100%;
