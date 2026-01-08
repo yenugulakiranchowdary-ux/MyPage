@@ -205,111 +205,88 @@
 </section>
 
 <section class="pricing-section">
+  <small class="pricing-tag">Pricing</small>
+  <h2 class="pricing-title">
+    CHOOSE THE <span>BEST PACKAGE</span><br>
+    FOR YOUR BUSINESS
+  </h2>
 
-  <p class="pricing-tag">Pricing</p>
-  <h2>CHOOSE THE <span>BEST PACKAGE</span><br>FOR YOUR BUSINESS</h2>
-
-  <div class="toggle">
+ 
+  <div class="billing-toggle">
     <span>Monthly</span>
-    <div class="switch" onclick="togglePlan()">
-      <div class="circle"></div>
-    </div>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
     <span>Yearly</span>
   </div>
 
-  <!-- MONTHLY -->
-  <div class="cards" id="monthly">
+  
+  <div class="pricing-cards">
 
-    <div class="card">
+    <div class="price-card">
       <h3>Basic Package</h3>
-      <hr>
+      <div class="divider"></div>
+
+      <h4>What's included?</h4>
       <ul>
-        <li>Free Consultation</li>
-        <li>Document Template</li>
-        <li>Professional Team</li>
-        <li>24/7 Full Support</li>
+        <li><i class="fa-solid fa-check"></i> Free Consultation</li>
+        <li><i class="fa-solid fa-check"></i> Document Template</li>
+        <li><i class="fa-solid fa-check"></i> Professional Team</li>
+        <li><i class="fa-solid fa-check"></i> 24/7 Full Support</li>
       </ul>
-      <button>Get Started →</button>
+
+      <button class="btn-dark">Get Started →</button>
+      <p class="terms">*Terms and Conditions apply</p>
     </div>
 
-    <div class="card featured">
+
+    <div class="price-card featured">
       <h3>Regular Package</h3>
-      <hr>
+      <div class="divider"></div>
+
+      <h4>What's included?</h4>
       <ul>
-        <li>Free Consultation</li>
-        <li>Document Template</li>
-        <li>Professional Team</li>
-        <li>24/7 Full Support</li>
+        <li><i class="fa-solid fa-check"></i> Free Consultation</li>
+        <li><i class="fa-solid fa-check"></i> Document Template</li>
+        <li><i class="fa-solid fa-check"></i> Professional Team</li>
+        <li><i class="fa-solid fa-check"></i> 24/7 Full Support</li>
       </ul>
-      <button>Get Started →</button>
+
+      <button class="btn-dark">Get Started →</button>
+      <p class="terms">*Terms and Conditions apply</p>
     </div>
 
-    <div class="card">
+
+    <div class="price-card">
       <h3>Deluxe Package</h3>
-      <hr>
+      <div class="divider"></div>
+
+      <h4>What's included?</h4>
       <ul>
-        <li>Free Consultation</li>
-        <li>Document Template</li>
-        <li>Professional Team</li>
-        <li>24/7 Full Support</li>
+        <li><i class="fa-solid fa-check"></i> Free Consultation</li>
+        <li><i class="fa-solid fa-check"></i> Document Template</li>
+        <li><i class="fa-solid fa-check"></i> Professional Team</li>
+        <li><i class="fa-solid fa-check"></i> 24/7 Full Support</li>
       </ul>
-      <button>Get Started →</button>
-    </div>
 
-  </div>
-
-  <!-- YEARLY -->
-  <div class="cards hidden" id="yearly">
-
-    <div class="card">
-      <h3>Basic Yearly</h3>
-      <hr>
-      <ul>
-        <li>Priority Support</li>
-        <li>Advanced Reports</li>
-        <li>Dedicated Manager</li>
-        <li>Unlimited Services</li>
-      </ul>
-      <button>Get Started →</button>
-    </div>
-
-    <div class="card featured">
-      <h3>Pro Yearly</h3>
-      <hr>
-      <ul>
-        <li>Everything Included</li>
-        <li>Dedicated Manager</li>
-        <li>24/7 Premium Support</li>
-        <li>Unlimited Services</li>
-      </ul>
-      <button>Get Started →</button>
-    </div>
-
-    <div class="card">
-      <h3>Enterprise Yearly</h3>
-      <hr>
-      <ul>
-        <li>Custom Solutions</li>
-        <li>Dedicated Team</li>
-        <li>Unlimited Projects</li>
-        <li>VIP Support</li>
-      </ul>
-      <button>Get Started →</button>
+      <button class="btn-dark">Get Started →</button>
+      <p class="terms">*Terms and Conditions apply</p>
     </div>
 
   </div>
 
 </section>
-<script>
-let yearly=false;
 
-function togglePlan(){
-  yearly=!yearly;
-  document.getElementById('monthly').classList.toggle('hidden',yearly);
-  document.getElementById('yearly').classList.toggle('hidden',!yearly);
-  document.querySelector('.circle').style.left = yearly ? '35px':'3px';
-}
-</script>
+
+<section class="custom-plan">
+  <p>
+    Need a custom pricing plan?
+    <a href="contact.html" class="custom-link">
+      Click Here <span>→</span>
+    </a>
+  </p>
+</section>
 
 <section class="custom-plan">
   <p>
