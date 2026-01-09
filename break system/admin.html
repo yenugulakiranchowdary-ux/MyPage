@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:Poppins;background:#F4F6FB;padding:30px;}
+
+.backBtn{
+    padding:10px 18px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#444,#111);
+    color:white;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+.backBtn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:14px;
+    margin-bottom:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+table{width:100%;border-collapse:collapse;}
+th,td{padding:12px;border-bottom:1px solid #ddd;}
+
+th{background:#6C63FF;color:#fff;}
+
+.green{color:#00C9A7;font-weight:600;}
+.red{color:#FF5C5C;font-weight:600;}
+
+button{
+    padding:8px 14px;
+    border:none;
+    border-radius:8px;
+    background:#6C63FF;
+    color:#fff;
+    cursor:pointer;
+}
+
+.logout{float:right;background:#FF5C5C;}
+</style>
+</head>
+
+<body>
+
+<button class="backBtn" onclick="goBack()">← Back</button>
+
+<h2>Admin Dashboard
+<button class="logout" onclick="logout()">Logout</button>
+</h2>
+
+<div class="card">
+<h3>Add User</h3>
+<input id="uname" placeholder="Username">
+<input id="upass" placeholder="Password">
+<br><br>
+<button onclick="addUser()">Add User</button>
+</div>
+
+<div class="card">
+<h3>Users Status</h3>
+<table>
+<thead>
+<tr>
+<th>Username</th><th>Role</th><th>Status</th><th>Break</th><th>Action</th>
+</tr>
+</thead>
+<tbody id="userTable"></tbody>
+</table>
+</div>
+
+<script>
+if(localStorage.getItem("role")!=="admin") location="login.html";
+
+let users=JSON.parse(localStorage.getItem("users"))||[];
+
+function renderUsers(){
+    let html="";
+    users.forEach((u,i)=>{
+        html+=`
+        <tr>
+        <td>${u.username}</td>
+        <td>${u.role}</td>
+        <td class="${u.status==="ONLINE"?"green":"red"}">${u.status}</td>
+        <td>${u.breakType||"-"}</td>
+        <td><button onclick="deleteUser(${i})">Delete</button></td>
+        </tr>`;
+    });
+    userTable.innerHTML=html;
+    localStorage.setItem("users",JSON.stringify(users));
+}
+
+setInterval(()=>{users=JSON.parse(localStorage.getItem("users"))||[];renderUsers();},2000);
+
+function addUser(){
+    if(!uname.value||!upass.value) return;
+    users.push({username:uname.value,password:upass.value,role:"USER",status:"ONLINE",breakType:null});
+    uname.value=upass.value="";
+    renderUsers();
+}
+
+function deleteUser(i){users.splice(i,1);renderUsers();}
+function logout(){localStorage.clear();location="login.html";}
+function goBack(){location="login.html";}
+
+renderUsers();
+</script>
+
+</body>
+</html>
