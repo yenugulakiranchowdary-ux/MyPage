@@ -2,119 +2,153 @@
 <html>
 <head>
 <title>Admin Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{font-family:Poppins;background:#F4F6FB;padding:30px;}
-
-.backBtn{
-    padding:10px 18px;
-    margin-bottom:15px;
-    border:none;
-    border-radius:10px;
-    background:linear-gradient(135deg,#444,#111);
-    color:white;
-    cursor:pointer;
-    transition:0.3s ease;
-}
-.backBtn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(0,0,0,0.35);
-}
-
-.card{
-    background:#fff;
-    padding:25px;
-    border-radius:14px;
-    margin-bottom:25px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-}
-
+*{ box-sizing:border-box; }
+body{margin:0;font-family:Poppins;background:#f1f4f9;padding:30px;}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.backBtn,.logout{padding:10px 18px;border:none;border-radius:6px;color:white;cursor:pointer;}
+.backBtn{background:#232f3e;}
+.logout{background:#d93025;}
+.card{background:white;padding:25px;border-radius:10px;margin-bottom:25px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+input{padding:10px;border:1px solid #ccd6e0;border-radius:5px;margin:6px 0;}
+button{padding:10px 16px;border:none;border-radius:5px;cursor:pointer;background:#ffd814;font-weight:600;}
 table{width:100%;border-collapse:collapse;}
-th,td{padding:12px;border-bottom:1px solid #ddd;}
-
-th{background:#6C63FF;color:#fff;}
-
-.green{color:#00C9A7;font-weight:600;}
-.red{color:#FF5C5C;font-weight:600;}
-
-button{
-    padding:8px 14px;
-    border:none;
-    border-radius:8px;
-    background:#6C63FF;
-    color:#fff;
-    cursor:pointer;
-}
-
-.logout{float:right;background:#FF5C5C;}
+th,td{padding:12px;border-bottom:1px solid #e0e6ef;}
+th{background:#232f3e;color:white;}
+.green{color:#1f8f5f;} .red{color:#d93025;}
+.tools{display:flex;gap:10px;margin-bottom:15px;}
+.popup{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;justify-content:center;align-items:center;}
+.popup-box{background:white;padding:25px;border-radius:10px;width:400px;}
 </style>
 </head>
 
 <body>
 
-<button class="backBtn" onclick="goBack()">← Back</button>
-
-<h2>Admin Dashboard
-<button class="logout" onclick="logout()">Logout</button>
-</h2>
+<div class="header">
+    <button class="backBtn" onclick="goBack()">← Back</button>
+    <h2>Admin Dashboard</h2>
+    <button class="logout" onclick="logout()">Logout</button>
+</div>
 
 <div class="card">
 <h3>Add User</h3>
-<input id="uname" placeholder="Username">
-<input id="upass" placeholder="Password">
-<br><br>
+<input id="uname" placeholder="Email ID">
+<input id="upass" placeholder="Password"><br><br>
 <button onclick="addUser()">Add User</button>
 </div>
 
 <div class="card">
 <h3>Users Status</h3>
+
+<div class="tools">
+    <input id="search" placeholder="Search user..." onkeyup="filterUsers()">
+    <button onclick="exportCSV()">Download CSV</button>
+</div>
+
 <table>
 <thead>
 <tr>
-<th>Username</th><th>Role</th><th>Status</th><th>Break</th><th>Action</th>
+<th>Username</th>
+<th>Status</th>
+<th>Break</th>
+<th>View</th>
+<th>Action</th>
 </tr>
 </thead>
 <tbody id="userTable"></tbody>
 </table>
 </div>
 
+<div class="popup" id="viewPopup">
+  <div class="popup-box">
+    <h3>User Details</h3>
+    <div id="details"></div><br>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
 <script>
 if(localStorage.getItem("role")!=="admin") location="login.html";
-
 let users=JSON.parse(localStorage.getItem("users"))||[];
 
 function renderUsers(){
-    let html="";
-    users.forEach((u,i)=>{
-        html+=`
-        <tr>
-        <td>${u.username}</td>
-        <td>${u.role}</td>
-        <td class="${u.status==="ONLINE"?"green":"red"}">${u.status}</td>
-        <td>${u.breakType||"-"}</td>
-        <td><button onclick="deleteUser(${i})">Delete</button></td>
-        </tr>`;
-    });
-    userTable.innerHTML=html;
-    localStorage.setItem("users",JSON.stringify(users));
+let html="";
+users.forEach((u,i)=>{
+html+=`
+<tr>
+<td>${u.username}</td>
+<td class="${u.status=="ONLINE"?"green":"red"}">${u.status}</td>
+<td>${u.breakType||"-"}</td>
+<td><button onclick="viewUser(${i})">View</button></td>
+<td><button onclick="deleteUser(${i})">Delete</button></td>
+</tr>`;
+});
+userTable.innerHTML=html;
+localStorage.setItem("users",JSON.stringify(users));
 }
 
 setInterval(()=>{users=JSON.parse(localStorage.getItem("users"))||[];renderUsers();},2000);
 
 function addUser(){
-    if(!uname.value||!upass.value) return;
-    users.push({username:uname.value,password:upass.value,role:"USER",status:"ONLINE",breakType:null});
-    uname.value=upass.value="";
-    renderUsers();
+const email=uname.value.trim().toLowerCase();
+const pass=upass.value.trim();
+if(!email||!pass) return alert("Fill all fields");
+if(users.some(u=>u.username===email)) return alert("User exists");
+users.push({username:email,password:pass,role:"USER",status:"ONLINE",breakType:null,enabled:true,logs:[]});
+uname.value=upass.value="";
+renderUsers();
 }
 
 function deleteUser(i){users.splice(i,1);renderUsers();}
 function logout(){localStorage.clear();location="login.html";}
 function goBack(){location="login.html";}
 
+function viewUser(i){
+let u=users[i];
+let log=u.logs.map(l=>`${l.type} | ${l.start} - ${l.end||""} (${l.duration||""})`).join("<br>");
+details.innerHTML=`<b>Email:</b> ${u.username}<br><b>Status:</b> ${u.status}<br><b>Break:</b> ${u.breakType||"-"}<br><br><b>Logs:</b><br>${log||"No data"}`;
+document.getElementById("viewPopup").style.display="flex";
+}
+function closePopup(){document.getElementById("viewPopup").style.display="none";}
+
+function exportCSV(){
+let csv="Username,Status,Break,Start,End,Duration\n";
+users.forEach(u=>{
+if(u.logs) u.logs.forEach(l=>{
+csv+=`${u.username},${u.status},${l.type},${l.start},${l.end||""},${l.duration||""}\n`;
+});
+});
+let blob=new Blob([csv],{type:"text/csv"});
+let a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="break_report.csv";
+a.click();
+}
+
+function filterUsers(){
+let q=search.value.toLowerCase();
+document.querySelectorAll("#userTable tr").forEach(r=>{
+r.style.display=r.innerText.toLowerCase().includes(q)?"":"none";
+});
+}
+
+// ===== BREAK ALERT =====
+setInterval(()=>{
+users.forEach(u=>{
+if(u.status==="AWAY"&&u.breakStart){
+let mins=(Date.now()-u.breakStart)/60000;
+if(mins>60&&!u.adminAlerted){
+alert(`⚠ ${u.username} exceeded break limit`);
+u.adminAlerted=true;
+}
+}
+});
+localStorage.setItem("users",JSON.stringify(users));
+},60000);
+
 renderUsers();
 </script>
-
 </body>
 </html>
