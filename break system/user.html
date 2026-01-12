@@ -6,148 +6,259 @@
 
 <style>
 *{ box-sizing:border-box; }
-body{margin:0;font-family:Poppins;background:#f1f4f9;padding:30px;}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;}
-.logo{height:60px;}
-.actions{display:flex;gap:10px;}
-button{padding:10px 16px;border:none;border-radius:5px;cursor:pointer;font-weight:600;}
-.logout{background:#d93025;color:white;}
-.backBtn{background:#232f3e;color:white;}
-.card{background:white;padding:25px;border-radius:10px;margin-bottom:20px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-select{padding:10px 14px;border-radius:5px;border:1px solid #ccd6e0;}
-.b1{background:#1f8f5f;color:white;}
-.b2{background:#d93025;color:white;}
-.popup{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;justify-content:center;align-items:center;}
-.popup-box{background:white;padding:30px;border-radius:10px;width:320px;text-align:center;}
-.analytics .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
-.mini{background:#f1f4f9;padding:15px;border-radius:8px;text-align:center;}
-table th{background:#232f3e;color:white;padding:10px;}
-table td{padding:10px;border-bottom:1px solid #e0e6ef;}
+
+body{
+    margin:0;
+    font-family:Poppins;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    padding:28px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
+    color:white;
+}
+
+.logo{height:55px;}
+
+.actions{display:flex;gap:12px;}
+
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.logout{background:#dc2626;color:white;}
+.backBtn{background:#374151;color:white;}
+
+
+.layout{display:flex;gap:22px;}
+
+.sidebar{width:260px;}
+
+.main{flex:1;}
+
+
+.card{
+    background:white;
+    padding:26px;
+    border-radius:14px;
+    margin-bottom:22px;
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+h3{margin-top:0;}
+
+
+select{
+    padding:11px 14px;
+    border-radius:7px;
+    border:1px solid #d1d5db;
+}
+
+.b1{background:#16a34a;color:white;}
+.b2{background:#dc2626;color:white;}
+
+
+.analytics .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.mini{
+    background:#f3f4f6;
+    padding:18px;
+    border-radius:10px;
+    text-align:center;
+}
+
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-box{
+    background:white;
+    padding:30px;
+    border-radius:14px;
+    width:320px;
+    text-align:center;
+}
 </style>
 </head>
 
 <body>
 
 <div class="header">
-    <img src="WhatsApp Image 2026-01-10 at 1.20.09 PM.jpeg" class="logo">
-    <h2>User Dashboard</h2>
-    <div class="actions">
-        <button class="logout" onclick="logoutUser()">Logout</button>
-        <button class="backBtn" onclick="goBackToAdmin()">← Back</button>
-    </div>
+<img src="WhatsApp_Image_2026-01-10_at_1.20.09_PM-removebg-preview.png" class="logo">
+<h2>User Dashboard</h2>
+<div class="actions">
+<button class="logout" onclick="logoutUser()">Logout</button>
+<button class="backBtn" onclick="goBackToAdmin()">← Back</button>
+</div>
 </div>
 
+<div class="layout">
+
+
+<div class="sidebar">
+  <div class="card">
+    <h3>👥 Team Live Status</h3>
+    <p id="teamStatus"></p>
+  </div>
+</div>
+
+
+<div class="main">
+
 <div class="card">
-    <h3>Break Management</h3>
-    <select id="breakType">
-        <option value="Regular">Regular</option>
-        <option value="Lunch">Lunch</option>
-    </select><br><br>
-    <button class="b1" onclick="startBreak()">Break In</button>
-    <button class="b2" onclick="endBreak()">Break Out</button>
-    <p id="breakStatus"></p>
+<h3>Break Management</h3>
+
+<select id="breakType">
+<option value="Regular">Regular</option>
+<option value="Lunch">Lunch</option>
+</select><br><br>
+
+<button class="b1" onclick="startBreak()">Break In</button>
+<button class="b2" onclick="endBreak()">Break Out</button>
+
+<p id="breakStatus"></p>
+<p><b>Live Session Timer:</b> <span id="liveSession">00:00</span></p>
 </div>
 
 <div class="card analytics">
-    <h3>Daily Activity Summary</h3>
-    <div class="grid">
-        <div class="mini"><p>Total Breaks</p><h4 id="totalBreaks">0</h4></div>
-        <div class="mini"><p>Total Break Duration</p><h4 id="totalMinutes">0 mins</h4></div>
-        <div class="mini"><p>Lunch Breaks</p><h4 id="lunchCount">0</h4></div>
-    </div>
+<h3>Daily Activity Summary</h3>
+
+<div class="grid">
+<div class="mini"><p>Total Breaks</p><h4 id="totalBreaks">0</h4></div>
+<div class="mini"><p>Total Break Duration</p><h4 id="totalMinutes">0 mins</h4></div>
+<div class="mini"><p>Lunch Breaks</p><h4 id="lunchCount">0</h4></div>
+</div>
 </div>
 
-<div class="card">
-    <h3>Break History</h3>
-    <table width="100%">
-        <thead><tr><th>Type</th><th>Start</th><th>End</th><th>Duration</th></tr></thead>
-        <tbody id="history"></tbody>
-    </table>
+</div>
 </div>
 
-<div id="alertPopup" class="popup">
+
+<div id="breakPopup" class="popup">
   <div class="popup-box">
-    <h3>⚠ Break Alert</h3>
-    <p>You have exceeded 1 hour break!</p>
-    <button class="b1" onclick="closePopup()">OK</button>
+    <h3>🕒 Break Started</h3>
+    <p>Your break session has started</p>
   </div>
 </div>
 
 <script>
 if(localStorage.getItem("role")!=="user") location="login.html";
-let users=JSON.parse(localStorage.getItem("users"))||[];
-let currentUser=localStorage.getItem("currentUser");
-let alertShown=false;
 
-function IST(){return new Date().toLocaleString("en-IN",{timeZone:"Asia/Kolkata"});}
-function getMe(){return users.find(u=>u.username===currentUser);}
+let users = JSON.parse(localStorage.getItem("users")) || [];
+let currentUser = localStorage.getItem("currentUser");
+let sessionTimer;
+
+function IST(){ return new Date().toLocaleString("en-IN",{timeZone:"Asia/Kolkata"}); }
+function getMe(){ return users.find(u=>u.username===currentUser); }
 
 function updateUI(){
-    users=JSON.parse(localStorage.getItem("users"))||[];
-    let me=getMe(); if(!me) return;
+users = JSON.parse(localStorage.getItem("users")) || [];
+let me = getMe(); if(!me) return;
 
-    breakStatus.innerText = me.status==="AWAY" ? 
-        "You are on "+me.breakType+" Break" : "You are Working";
+breakStatus.innerText = me.status==="AWAY" ?
+"You are on "+me.breakType+" Break" : "You are Working";
 
-    let total=0,lunch=0,minutes=0,rows="";
-    me.logs=me.logs||[];
+let total=0, lunch=0, minutes=0;
+me.logs = me.logs || [];
 
-    me.logs.forEach(l=>{
-        total++;
-        if(l.type==="Lunch") lunch++;
-        if(l.duration){let m=parseInt(l.duration); if(!isNaN(m)) minutes+=m;}
-        rows+=`<tr><td>${l.type}</td><td>${l.start}</td><td>${l.end||"-"}</td><td>${l.duration||"-"}</td></tr>`;
-    });
+me.logs.forEach(l=>{
+  total++;
+  if(l.type==="Lunch") lunch++;
+  if(l.start && l.end){
+    let s = new Date(l.start).getTime();
+    let e = new Date(l.end).getTime();
+    if(!isNaN(s) && !isNaN(e) && e > s){
+      minutes += Math.floor((e - s)/60000);
+    }
+  }
+});
 
-    totalBreaks.innerText=total;
-    lunchCount.innerText=lunch;
-    totalMinutes.innerText=minutes+" mins";
+totalBreaks.innerText = total;
+lunchCount.innerText = lunch;
+totalMinutes.innerText = minutes + " mins";
 
-    document.getElementById("history").innerHTML = rows || 
-        `<tr><td colspan="4" style="text-align:center;color:#777;">No break records yet</td></tr>`;
+updateTeamStatus();
 }
 
 function startBreak(){
-    let me=getMe();
-    me.status="AWAY";
-    me.breakType=breakType.value;
-    me.breakStart=Date.now();
-    me.alerted=false;
-    me.logs=me.logs||[];
-    me.logs.push({type:me.breakType,start:IST()});
-    save();
+let me = getMe();
+me.status = "AWAY";
+me.breakType = breakType.value;
+me.breakStart = Date.now();
+me.logs.push({type:me.breakType,start:IST()});
+save();
+startSessionTimer();
+
+breakPopup.style.display="flex";
+setTimeout(()=>breakPopup.style.display="none",1200);
 }
 
 function endBreak(){
-    let me=getMe();
-    let log=me.logs[me.logs.length-1];
-    log.end=IST();
-    let mins=Math.max(1,Math.floor((Date.now()-me.breakStart)/60000));
-    log.duration=mins+" mins";
-    me.status="ONLINE";
-    me.breakType=null;
-    me.breakStart=null;
-    save();
+let me = getMe();
+let log = me.logs.find(l=>!l.end);
+log.end = IST();
+me.status = "ONLINE";
+me.breakType = null;
+me.breakStart = null;
+save();
+stopSessionTimer();
 }
 
-function save(){localStorage.setItem("users",JSON.stringify(users));updateUI();}
+function startSessionTimer(){
+clearInterval(sessionTimer);
+sessionTimer = setInterval(()=>{
+let me = getMe();
+if(me && me.breakStart){
+let sec = Math.floor((Date.now()-me.breakStart)/1000);
+let m = String(Math.floor(sec/60)).padStart(2,"0");
+let s = String(sec%60).padStart(2,"0");
+liveSession.innerText = `${m}:${s}`;
+}
+},1000);
+}
 
-setInterval(()=>{
-    let me=getMe();
-    if(me && me.status==="AWAY"){
-        let mins=(Date.now()-me.breakStart)/60000;
-        if(mins>=60&&!alertShown){
-            document.getElementById("alertPopup").style.display="flex";
-            alertShown=true;
-        }
-    }
-},60000);
+function stopSessionTimer(){
+clearInterval(sessionTimer);
+liveSession.innerText = "00:00";
+}
 
+function updateTeamStatus(){
+let text="";
+users.forEach(u=>{
+let state = u.status==="AWAY" ? "🟡 On Break" : "🟢 Working";
+text += `${u.username} - ${state}<br>`;
+});
+teamStatus.innerHTML = text;
+}
+
+function save(){
+localStorage.setItem("users",JSON.stringify(users));
+updateUI();
+}
+
+setInterval(updateTeamStatus,30000);
 updateUI();
 
-function closePopup(){document.getElementById("alertPopup").style.display="none";}
-function logoutUser(){localStorage.clear();location="login.html";}
-function goBackToAdmin(){localStorage.setItem("role","admin");location="admin.html";}
+function logoutUser(){ localStorage.clear(); location="login.html"; }
+function goBackToAdmin(){ localStorage.setItem("role","admin"); location="admin.html"; }
 </script>
 
 </body>
