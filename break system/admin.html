@@ -6,82 +6,262 @@
 
 <style>
 *{ box-sizing:border-box; }
-body{margin:0;font-family:Poppins;background:#f1f4f9;padding:30px;}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-.backBtn,.logout{padding:10px 18px;border:none;border-radius:6px;color:white;cursor:pointer;}
-.backBtn{background:#232f3e;}
-.logout{background:#d93025;}
-.card{background:white;padding:25px;border-radius:10px;margin-bottom:25px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-input{padding:10px;border:1px solid #ccd6e0;border-radius:5px;margin:6px 0;}
-button{padding:10px 16px;border:none;border-radius:5px;cursor:pointer;background:#ffd814;font-weight:600;}
+
+body{
+    margin:0;
+    font-family:Poppins;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    display:flex;
+    height:100vh;
+}
+
+
+.sidebar{
+    width:230px;
+    background:#111827;
+    color:white;
+    padding:24px 20px;
+    box-shadow:5px 0 20px rgba(0,0,0,.3);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:30px;
+    height: 20px;
+}
+
+.brand img{
+    width:150px;
+}
+
+
+
+.navMenu{list-style:none;padding:0;margin:0;}
+.navMenu li{
+    padding:14px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+.navMenu li:hover{
+    background:#1f2937;
+}
+
+
+.main{
+    flex:1;
+    padding:32px;
+    overflow:auto;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:26px;
+}
+
+.header h2{color:white;}
+
+.backBtn,.logout{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    color:white;
+}
+
+.backBtn{background:#374151;}
+.logout{background:#dc2626;}
+
+.card{
+    background:white;
+    padding:26px;
+    border-radius:14px;
+    margin-bottom:26px;
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+
+input,select{
+    padding:11px 12px;
+    border:1px solid #d1d5db;
+    border-radius:7px;
+    outline:none;
+}
+
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:7px;
+    background:linear-gradient(180deg,#ffb347,#ff9900);
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:hover{
+    background: linear-gradient(180deg,#ff9900,#e68a00);
+}
 table{width:100%;border-collapse:collapse;}
-th,td{padding:12px;border-bottom:1px solid #e0e6ef;}
-th{background:#232f3e;color:white;}
-.green{color:#1f8f5f;} .red{color:#d93025;}
-.tools{display:flex;gap:10px;margin-bottom:15px;}
-.popup{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;justify-content:center;align-items:center;}
-.popup-box{background:white;padding:25px;border-radius:10px;width:400px;}
+th,td{padding:14px;border-bottom:1px solid #e5e7eb;text-align:left;}
+th{background:#1f2937;color:white;}
+
+.green{color:#059669;}
+.red{color:#dc2626;}
+.gray{color:#6b7280;}
+
+.tools{
+    display:flex;
+    gap:10px;
+    justify-content:flex-end;
+    margin-bottom:14px;
+}
+
+
+.toggle{
+    padding:6px 14px;
+    border-radius:20px;
+    font-weight:600;
+    border:none;
+    cursor:pointer;
+}
+
+.enable{background:#16a34a;color:white;}
+.disable{background:#dc2626;color:white;}
+
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-box{
+    background:white;
+    padding:26px;
+    border-radius:14px;
+    width:420px;
+}
+
+
+#notifyList{list-style:none;padding:0;}
+#notifyList li{
+    padding:10px;
+    border-bottom:1px solid #e5e7eb;
+}
 </style>
 </head>
 
 <body>
 
+<div class="sidebar">
+
+<div class="brand">
+    <img src="WhatsApp_Image_2026-01-10_at_1.20.09_PM-removebg-preview.png">
+  
+</div>
+
+<ul class="navMenu">
+<li onclick="filterStatus('')">All Users</li>
+<li onclick="filterStatus('ONLINE')">Online</li>
+<li onclick="filterStatus('AWAY')">Away</li>
+</ul>
+
+</div>
+
+<div class="main">
+
 <div class="header">
-    <button class="backBtn" onclick="goBack()">← Back</button>
-    <h2>Admin Dashboard</h2>
-    <button class="logout" onclick="logout()">Logout</button>
+<button class="backBtn" onclick="location='login.html'">← Back</button>
+<h2>Admin Dashboard</h2>
+<button class="logout" onclick="logout()">Logout</button>
+</div>
+
+<div class="card">
+<h3>🔔 User Alerts</h3>
+<ul id="notifyList"></ul>
 </div>
 
 <div class="card">
 <h3>Add User</h3>
-<input id="uname" placeholder="Email ID">
-<input id="upass" placeholder="Password"><br><br>
+<input id="uname" placeholder="Email">
+<input id="upass" placeholder="Password">
 <button onclick="addUser()">Add User</button>
 </div>
 
 <div class="card">
-<h3>Users Status</h3>
+<h3>User Management</h3>
 
 <div class="tools">
-    <input id="search" placeholder="Search user..." onkeyup="filterUsers()">
-    <button onclick="exportCSV()">Download CSV</button>
+<input id="search" placeholder="Search email..." onkeyup="renderUsers()">
+<select id="accountFilter" onchange="renderUsers()">
+<option value="">All Accounts</option>
+<option value="true">Active</option>
+<option value="false">Disabled</option>
+</select>
+<button onclick="sortUsers()">Sort</button>
 </div>
 
 <table>
 <thead>
 <tr>
-<th>Username</th>
-<th>Status</th>
-<th>Break</th>
-<th>View</th>
-<th>Action</th>
+<th>Email</th><th>Status</th><th>Account</th><th>Live</th><th>Edit</th><th>Enable</th><th>Delete</th>
 </tr>
 </thead>
 <tbody id="userTable"></tbody>
 </table>
 </div>
+</div>
 
-<div class="popup" id="viewPopup">
-  <div class="popup-box">
-    <h3>User Details</h3>
-    <div id="details"></div><br>
-    <button onclick="closePopup()">Close</button>
-  </div>
+
+<div class="popup" id="editPopup">
+<div class="popup-box">
+<h3>Edit User</h3>
+<input id="editEmail">
+<input id="editPass">
+<select id="editStatus">
+<option>ONLINE</option>
+<option>AWAY</option>
+</select>
+<select id="editAccount">
+<option value="true">Active</option>
+<option value="false">Disabled</option>
+</select><br><br>
+<button onclick="saveEdit()">Save</button>
+<button onclick="closeEdit()">Cancel</button>
+</div>
 </div>
 
 <script>
-if(localStorage.getItem("role")!=="admin") location="login.html";
 let users=JSON.parse(localStorage.getItem("users"))||[];
+let editIndex=null,currentFilter="";
 
 function renderUsers(){
+let q=search.value.toLowerCase();
+let acc=accountFilter.value;
 let html="";
-users.forEach((u,i)=>{
-html+=`
-<tr>
+users.filter(u=>u.username.toLowerCase().includes(q))
+     .filter(u=>!currentFilter||u.status===currentFilter)
+     .filter(u=>acc===""||String(u.enabled)===acc)
+     .forEach((u,i)=>{
+let timer="-";
+if(u.status==="AWAY"&&u.breakStart){
+let s=Math.floor((Date.now()-u.breakStart)/1000);
+timer=`${Math.floor(s/60)}m ${s%60}s`;
+}
+html+=`<tr>
 <td>${u.username}</td>
-<td class="${u.status=="ONLINE"?"green":"red"}">${u.status}</td>
-<td>${u.breakType||"-"}</td>
-<td><button onclick="viewUser(${i})">View</button></td>
+<td class="${u.status=='ONLINE'?'green':'red'}">${u.status}</td>
+<td class="${u.enabled?'green':'gray'}">${u.enabled?'Active':'Disabled'}</td>
+<td>${timer}</td>
+<td><button onclick="openEdit(${i})">Edit</button></td>
+<td><button class="toggle ${u.enabled?'disable':'enable'}" onclick="toggleUser(${i})">${u.enabled?'Disable':'Enable'}</button></td>
 <td><button onclick="deleteUser(${i})">Delete</button></td>
 </tr>`;
 });
@@ -89,59 +269,47 @@ userTable.innerHTML=html;
 localStorage.setItem("users",JSON.stringify(users));
 }
 
-setInterval(()=>{users=JSON.parse(localStorage.getItem("users"))||[];renderUsers();},2000);
-
 function addUser(){
-const email=uname.value.trim().toLowerCase();
-const pass=upass.value.trim();
-if(!email||!pass) return alert("Fill all fields");
-if(users.some(u=>u.username===email)) return alert("User exists");
-users.push({username:email,password:pass,role:"USER",status:"ONLINE",breakType:null,enabled:true,logs:[]});
+users.push({username:uname.value,password:upass.value,status:'ONLINE',enabled:true});
 uname.value=upass.value="";
 renderUsers();
 }
 
-function deleteUser(i){users.splice(i,1);renderUsers();}
-function logout(){localStorage.clear();location="login.html";}
-function goBack(){location="login.html";}
-
-function viewUser(i){
+function openEdit(i){
+editIndex=i;
 let u=users[i];
-let log=u.logs.map(l=>`${l.type} | ${l.start} - ${l.end||""} (${l.duration||""})`).join("<br>");
-details.innerHTML=`<b>Email:</b> ${u.username}<br><b>Status:</b> ${u.status}<br><b>Break:</b> ${u.breakType||"-"}<br><br><b>Logs:</b><br>${log||"No data"}`;
-document.getElementById("viewPopup").style.display="flex";
-}
-function closePopup(){document.getElementById("viewPopup").style.display="none";}
-
-function exportCSV(){
-let csv="Username,Status,Break,Start,End,Duration\n";
-users.forEach(u=>{
-if(u.logs) u.logs.forEach(l=>{
-csv+=`${u.username},${u.status},${l.type},${l.start},${l.end||""},${l.duration||""}\n`;
-});
-});
-let blob=new Blob([csv],{type:"text/csv"});
-let a=document.createElement("a");
-a.href=URL.createObjectURL(blob);
-a.download="break_report.csv";
-a.click();
+editEmail.value=u.username;
+editPass.value=u.password;
+editStatus.value=u.status;
+editAccount.value=u.enabled;
+editPopup.style.display="flex";
 }
 
-function filterUsers(){
-let q=search.value.toLowerCase();
-document.querySelectorAll("#userTable tr").forEach(r=>{
-r.style.display=r.innerText.toLowerCase().includes(q)?"":"none";
-});
+function saveEdit(){
+let u=users[editIndex];
+u.username=editEmail.value;
+u.password=editPass.value;
+u.status=editStatus.value;
+u.enabled=(editAccount.value==="true");
+closeEdit();renderUsers();
 }
 
-// ===== BREAK ALERT =====
+function closeEdit(){editPopup.style.display="none";}
+function toggleUser(i){users[i].enabled=!users[i].enabled;renderUsers();}
+function deleteUser(i){users.splice(i,1);renderUsers();}
+function sortUsers(){users.sort((a,b)=>a.username.localeCompare(b.username));renderUsers();}
+function filterStatus(s){currentFilter=s;renderUsers();}
+function logout(){localStorage.clear();location="login.html";}
+
 setInterval(()=>{
 users.forEach(u=>{
-if(u.status==="AWAY"&&u.breakStart){
+if(u.status==="AWAY" && u.breakStart){
 let mins=(Date.now()-u.breakStart)/60000;
-if(mins>60&&!u.adminAlerted){
-alert(`⚠ ${u.username} exceeded break limit`);
-u.adminAlerted=true;
+if(mins>60 && !u.alerted){
+let li=document.createElement("li");
+li.innerHTML=`⚠ <b>${u.username}</b> exceeded break limit`;
+notifyList.appendChild(li);
+u.alerted=true;
 }
 }
 });
@@ -150,5 +318,6 @@ localStorage.setItem("users",JSON.stringify(users));
 
 renderUsers();
 </script>
+
 </body>
 </html>
