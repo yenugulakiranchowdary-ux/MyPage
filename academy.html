@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Academy</title>
+    <link rel="stylesheet" href="./css/academy.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+</head>
+<body>
+
+<header class="header">
+
+        <div class="logo">
+            <img src="./images/322343-removebg-preview.png" alt="Oppty Logo">
+        </div>
+
+
+        <nav class="nav">
+            <a href="home.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="our services.html">OUR SERVICES</a>
+            <a href="contact us.html">CONTACT US</a>
+            <a href="career.html">CAREERS</a>
+        </nav>
+
+
+            <div class="header-right">
+               <a href="academy.html" class="header-btn">ACADEMY</a>
+    
+               <a href="home.html" class="header-btn">TRAINING PARTNER</a>
+    
+    
+                <a href="tel:+919491209900" class="phone">📞 +91 9491209900</a>
+            </div>
+        </header>
+
+        <section class="about-hero">
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Academy</h1>
+    <p>HOME &nbsp;»&nbsp; ACADEMY</p>
+  </div>
+
+  <!-- Bottom SVG -->
+  <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
+    <path d="M0,40 C80,70 160,20 240,30 320,40 400,90 480,85 560,80 640,40 720,45
+             800,50 880,90 960,85 1040,80 1120,40 1200,45
+             1280,50 1360,90 1440,85 L1440,120 L0,120 Z"
+          fill="#ffffff"></path>
+  </svg>
+
+</section>
+<script>window.addEventListener("load",()=>{
+  const wave = document.querySelector(".hero-wave");
+
+  let pos = -140;
+  const interval = setInterval(()=>{
+    if(pos >= 0){
+      clearInterval(interval);
+    }else{
+      pos += 4;
+      wave.style.bottom = pos + "px";
+    }
+  }, 16);
+});
+</script> 
+
+<section class="academy-split">
+
+  <div class="academy-card fade-in">
+    <div class="card-inner">
+
+      <!-- FRONT -->
+      <div class="card-face card-front">
+        <h2>Empower Your Future</h2>
+        <h1>Oppty Academy</h1>
+        <p>
+          Industry-ready AI, Data Science & emerging tech programs
+          designed to accelerate real careers.
+        </p>
+      </div>
+
+      <!-- BACK -->
+      <div class="card-face card-back">
+        <h3>What Makes Us Different?</h3>
+        <ul>
+          <li>✔ Mentor-led training</li>
+          <li>✔ Industry projects</li>
+          <li>✔ Placement-driven programs</li>
+          <li>✔ Corporate certifications</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="academy-card fade-in delay">
+    <div class="card-inner">
+
+      <!-- FRONT -->
+      <div class="card-face card-front">
+        <h2>Learn • Build • Grow</h2>
+        <p>
+          We bridge the gap between education and industry
+          through hands-on, real-world learning.
+        </p>
+      </div>
+
+      <!-- BACK -->
+      <div class="card-face card-back">
+        <h3>Who Is This For?</h3>
+        <ul>
+          <li>🎓 Students</li>
+          <li>💼 Professionals</li>
+          <li>🏢 Corporate Teams</li>
+          <li>🚀 Career Switchers</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<script>
+const cards = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{ threshold:0.25 });
+
+cards.forEach(card=>observer.observe(card));
+</script>
+
+<section class="academy-programs">
+
+  <div class="program-card">
+    <span class="num">01</span>
+    <div class="icon-wrap">
+      <div class="icon"></div>
+    </div>
+    <h3>DATA SCIENCE</h3>
+    <p>Master data analytics and real-world decision making.</p>
+  </div>
+
+  <div class="program-card">
+    <span class="num">02</span>
+    <div class="icon-wrap">
+      <div class="icon"></div>
+    </div>
+    <h3>MACHINE LEARNING</h3>
+    <p>Build predictive models using practical ML workflows.</p>
+  </div>
+
+  <div class="program-card">
+    <span class="num">03</span>
+    <div class="icon-wrap">
+      <div class="icon"></div>
+    </div>
+    <h3>ARTIFICIAL INTELLIGENCE</h3>
+    <p>Solve complex problems using advanced AI systems.</p>
+  </div>
+
+  <div class="program-card">
+    <span class="num">04</span>
+    <div class="icon-wrap">
+      <div class="icon"></div>
+    </div>
+    <h3>APPLIED DEEP LEARNING</h3>
+    <p>Leverage neural networks for high-impact solutions.</p>
+  </div>
+
+</section>
+
+<script>
+
+window.addEventListener("load", () => {
+  const cards = document.querySelectorAll(".program-card");
+  cards.forEach((card, i) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
+    setTimeout(() => {
+      card.style.transition = "0.8s ease";
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }, i * 150);
+  });
+});
+
+
+
+const programObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("active");
+      }
+    });
+  },
+  { threshold: 0.25 }
+);
+
+document.querySelectorAll(".program-card").forEach(card => {
+  programObserver.observe(card);
+});
+
+
+
+document.querySelectorAll(".icon-wrap").forEach(icon => {
+  let angle = 0;
+  setInterval(() => {
+    angle += 360;
+    icon.style.transition = "1.2s ease";
+    icon.style.transform = `rotate(${angle}deg)`;
+  }, 6000);
+});
+</script>
+
+<section class="pricing-section" id="pricing">
+
+  <h2 class="pricing-title">Training Plans</h2>
+  <p class="pricing-sub">Flexible pricing tailored for your learning journey</p>
+
+  <div class="price-toggle">
+    <span class="active" data-type="monthly">Monthly</span>
+    <span data-type="onetime">One-Time</span>
+  </div>
+
+  <div class="pricing-grid">
+
+    <div class="plan-card popular"
+      data-monthly="₹8,999 / mo"
+      data-onetime="₹85,000">
+      <div class="ribbon">Most Popular</div>
+      <h3>Data Science</h3>
+      <div class="price">₹8,999 / mo</div>
+      <ul>
+        <li>Analytics + ML</li>
+        <li>Industry Projects</li>
+        <li>Internship Support</li>
+        <li>Placement Assistance</li>
+      </ul>
+      <button class="enroll-btn">Enroll Now</button>
+    </div>
+
+    <div class="plan-card"
+      data-monthly="₹9,999 / mo"
+      data-onetime="₹95,000">
+      <h3>Machine Learning</h3>
+      <div class="price">₹9,999 / mo</div>
+      <ul>
+        <li>ML Algorithms</li>
+        <li>Live Projects</li>
+        <li>Mentorship</li>
+        <li>Capstone Project</li>
+      </ul>
+      <button class="enroll-btn">Enroll Now</button>
+    </div>
+
+    <div class="plan-card"
+      data-monthly="₹11,999 / mo"
+      data-onetime="₹1,10,000">
+      <h3>Artificial Intelligence</h3>
+      <div class="price">₹11,999 / mo</div>
+      <ul>
+        <li>Advanced AI</li>
+        <li>Neural Networks</li>
+        <li>Live Use Cases</li>
+        <li>Hiring Support</li>
+      </ul>
+      <button class="enroll-btn">Enroll Now</button>
+    </div>
+
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+  const toggles=document.querySelectorAll(".price-toggle span");
+  const cards=document.querySelectorAll(".plan-card");
+
+  toggles.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      toggles.forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+
+      cards.forEach(card=>{
+        card.querySelector(".price").innerText =
+          card.dataset[btn.dataset.type];
+      });
+    });
+  });
+
+});
+</script>
+<footer class="footer">
+    <div class="footer-top">
+
+        <div class="footer-col">
+            <img src="./images/322343-removebg-preview.png" class="brand-logo">
+            <p>
+              Power up your success with innovative IT, BPO, E-commerce,
+              Web Development, and AI solutions tailored to your vision.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>HYDERABAD LOCATIONS</h4>
+            <p>
+                Hyderabad - Flat number 601,<br>
+                Mahitha’s green galaxy, CBCID Colony, NRSA Colony,<br>
+                Bagath Singh Nagar Phase 2, Kukatpally,<br>
+                Hyderabad, Telangana 500085
+            </p>
+        </div>
+
+
+        <div class="footer-col">
+            <h4>UDAIPUR LOCATIONS</h4>
+            <p>
+                Udaipur - Plot No: 26, 100 Feet Rd,<br>
+                Shobhagpura, Udaipur,<br>
+                Rajasthan 313011
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>CONTACT US</h4>
+            <a href="mailto:info@oppty.in">info@oppty.in</a><br>
+            <a href="tel:+919491209900">+91 9491209900</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>QUICK LINKS</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="cert-section">
+        <img src="./images/png-clipart-government-of-india-ministry-of-micro-small-and-medium-enterprises-small-business-india-text-logo__1_-removebg-preview (1).png">
+        <img src="./images/Ministry-for-Corporate-AffairS-1-removebg-preview.png">
+        <img src="./images/startup india 1.png">
+    </div>
+
+    <div class="footer-bottom">
+        ©2025 Oppty. All Rights Reserved.
+    </div>
+</footer>
+
+<div class="bot">
+
+                <a href="https://web.whatsapp.com/" target="_blank"><i class="fa fa-whatsapp"
+                        style="font-size:48px;color:green"></i></a>
+            </div>
+
+</body>
+</html>

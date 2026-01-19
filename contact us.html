@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./css/contact us.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+
+<header class="header">
+
+        <div class="logo">
+            <img src="./images/322343-removebg-preview.png" alt="Oppty Logo">
+        </div>
+
+
+        <nav class="nav">
+            <a href="home.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="our services.html">OUR SERVICES</a>
+            <a href="contact us.html">CONTACT US</a>
+            <a href="career.html">CAREERS</a>
+        </nav>
+
+
+            <div class="header-right">
+               <a href="academy.html" class="header-btn">ACADEMY</a>
+    
+               <a href="home.html" class="header-btn">TRAINING PARTNER</a>
+    
+    
+                <a href="tel:+919491209900" class="phone">📞 +91 9491209900</a>
+            </div>
+        </header>
+
+        <section class="about-hero">
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Contact Us</h1>
+    <p>HOME &nbsp;»&nbsp; CONTACT US</p>
+  </div>
+
+  <!-- Bottom SVG -->
+  <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
+    <path d="M0,40 C80,70 160,20 240,30 320,40 400,90 480,85 560,80 640,40 720,45
+             800,50 880,90 960,85 1040,80 1120,40 1200,45
+             1280,50 1360,90 1440,85 L1440,120 L0,120 Z"
+          fill="#ffffff"></path>
+  </svg>
+
+</section>
+<script>window.addEventListener("load",()=>{
+  const wave = document.querySelector(".hero-wave");
+
+  let pos = -140;
+  const interval = setInterval(()=>{
+    if(pos >= 0){
+      clearInterval(interval);
+    }else{
+      pos += 4;
+      wave.style.bottom = pos + "px";
+    }
+  }, 16);
+});
+</script>
+
+<section class="support-section reveal">
+  <div class="support-left">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 7v6l4 2"></path>
+      </svg>
+    </div>
+
+    <h2>
+      We Provide <br>
+      <span>Hassle-Free 24×7 Support</span>
+    </h2>
+  </div>
+
+  <div class="support-right">
+    <p>
+      Ready to transform your business? Contact <b>Oppty TechHub</b> to explore
+      innovative IT, BPO, E-commerce, web development, and AI solutions tailored
+      to your needs.
+      <br><br>
+      Our expert team ensures uninterrupted support, fast response times, and
+      enterprise-grade solutions to keep your business running 24×7.
+      <br><br>
+      📞 +91 9491209900 &nbsp; | &nbsp; ✉ info@oppty.in
+    </p>
+  </div>
+</section>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+  reveals.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+</script>
+
+<section class="contact-advanced reveal">
+
+  <!-- LEFT INFO -->
+  <div class="contact-info">
+
+    <div class="office">
+      <h3>Hyderabad Office</h3>
+      <p>
+        Flat No 601, Mahitha’s Green Galaxy,<br>
+        Kukatpally, Hyderabad – 500085<br>
+        <b>📞 +91 9491209900</b>
+      </p>
+    </div>
+
+    <div class="office">
+      <h3>Udaipur Office</h3>
+      <p>
+        Plot No 26, 100 Feet Road,<br>
+        Shobhagpura, Udaipur – 313011<br>
+        <b>📞 +91 9491209900</b>
+      </p>
+    </div>
+
+    <div class="socials">
+      <span>Connect With Us</span>
+      <div class="social-icons">
+        <a href="#" class="icon linkedin">in</a>
+        <a href="#" class="icon twitter">𝕏</a>
+        <a href="#" class="icon facebook">f</a>
+        <a href="#" class="icon instagram">◎</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-slider">
+
+  <div class="progress">
+    <span class="bar"></span>
+  </div>
+
+  <div class="form-track">
+
+    <!-- STEP 1 -->
+    <div class="form-slide active">
+      <h3>Let’s get started</h3>
+      <input type="text" placeholder="Your Name">
+      <button onclick="nextSlide()">Next →</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="form-slide">
+      <h3>Contact details</h3>
+      <input type="email" placeholder="Email Address">
+      <input type="tel" placeholder="Phone Number">
+      <button onclick="nextSlide()">Next →</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="form-slide">
+      <h3>Company info</h3>
+      <input type="text" placeholder="Company / Organization">
+      <select>
+        <option>Service Required</option>
+        <option>IT Services</option>
+        <option>BPO Services</option>
+        <option>Web Development</option>
+        <option>AI Solutions</option>
+      </select>
+      <button onclick="nextSlide()">Next →</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="form-slide">
+      <h3>Project brief</h3>
+      <textarea placeholder="Tell us about your project..."></textarea>
+      <button onclick="nextSlide()">Next →</button>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="form-slide submit">
+      <h3>Ready to submit?</h3>
+      <p>Our team will contact you within 24 hours.</p>
+      <button class="send">Request Consultation</button>
+    </div>
+
+  </div>
+</div>
+
+</section>
+
+
+<script>
+let index = 0;
+const track = document.querySelector('.form-track');
+const bar = document.querySelector('.progress .bar');
+const slides = document.querySelectorAll('.form-slide');
+const total = slides.length;
+
+function nextSlide(){
+  if(index < total - 1){
+    index++;
+    track.style.transform = `translateX(-${index * 20}%)`;
+    bar.style.width = `${((index + 1) / total) * 100}%`;
+  }
+}
+</script>
+
+<footer class="footer">
+    <div class="footer-top">
+
+        <div class="footer-col">
+            <img src="./images/322343-removebg-preview.png" class="brand-logo">
+            <p>
+              Power up your success with innovative IT, BPO, E-commerce,
+              Web Development, and AI solutions tailored to your vision.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>HYDERABAD LOCATIONS</h4>
+            <p>
+                Hyderabad - Flat number 601,<br>
+                Mahitha’s green galaxy, CBCID Colony, NRSA Colony,<br>
+                Bagath Singh Nagar Phase 2, Kukatpally,<br>
+                Hyderabad, Telangana 500085
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>UDAIPUR LOCATIONS</h4>
+            <p>
+                Udaipur - Plot No: 26, 100 Feet Rd,<br>
+                Shobhagpura, Udaipur,<br>
+                Rajasthan 313011
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>CONTACT US</h4>
+            <a href="mailto:info@oppty.in">info@oppty.in</a><br>
+            <a href="tel:+919491209900">+91 9491209900</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>QUICK LINKS</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="cert-section">
+        <img src="./images/png-clipart-government-of-india-ministry-of-micro-small-and-medium-enterprises-small-business-india-text-logo__1_-removebg-preview (1).png">
+        <img src="./images/Ministry-for-Corporate-AffairS-1-removebg-preview.png">
+        <img src="./images/startup india 1.png">
+    </div>
+
+    <div class="footer-bottom">
+        ©2025 Oppty. All Rights Reserved.
+    </div>
+</footer>
+<div class="bot">
+
+                <a href="https://web.whatsapp.com/" target="_blank"><i class="fa fa-whatsapp"
+                        style="font-size:48px;color:green"></i></a>
+            </div>
+
+    </body>
+    </html>
+
+
+
+
+

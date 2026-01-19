@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="./css/our services.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+
+<header class="header">
+
+        <div class="logo">
+            <img src="./images/322343-removebg-preview.png" alt="Oppty Logo">
+        </div>
+
+
+        <nav class="nav">
+            <a href="home.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+             <!-- DROPDOWN -->
+    <div class="dropdown">
+        <a href="solutions.html" class="dropbtn">OUR SERVICES</a>
+
+        <div class="dropdown-content">
+            <a href="solutions.html">SOLUTIONS</a>
+        </div>
+    </div>
+            <a href="contact us.html">CONTACT US</a>
+            <a href="career.html">CAREERS</a>
+        </nav>
+
+
+            <div class="header-right">
+               <a href="academy.html" class="header-btn">ACADEMY</a>
+    
+               <a href="home.html" class="header-btn">TRAINING PARTNER</a>
+    
+    
+                <a href="tel:+919491209900" class="phone">📞 +91 9491209900</a>
+            </div>
+        </header>
+
+        <section class="about-hero">
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Our Services</h1>
+    <p>HOME &nbsp;»&nbsp; OUR SERVICES</p>
+  </div>
+
+  <!-- Bottom SVG -->
+  <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
+    <path d="M0,40 C80,70 160,20 240,30 320,40 400,90 480,85 560,80 640,40 720,45
+             800,50 880,90 960,85 1040,80 1120,40 1200,45
+             1280,50 1360,90 1440,85 L1440,120 L0,120 Z"
+          fill="#ffffff"></path>
+  </svg>
+
+</section>
+<script>window.addEventListener("load",()=>{
+  const wave = document.querySelector(".hero-wave");
+
+  let pos = -140;
+  const interval = setInterval(()=>{
+    if(pos >= 0){
+      clearInterval(interval);
+    }else{
+      pos += 4;
+      wave.style.bottom = pos + "px";
+    }
+  }, 16);
+});
+</script>
+
+<section class="oppty-services">
+  <div class="container">
+    <span class="tagline">SERVICES</span>
+    <h2>FEATURED SERVICES</h2>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./images/Ai Automation.png">
+          <div class="service-icon">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+        </div>
+        <div class="service-content">
+          <h3>AI & Automation</h3>
+          <p>
+            Intelligent automation solutions to optimize operations,
+            reduce costs and accelerate business growth.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./images/web development 12.jpg">
+          <div class="service-icon">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+        </div>
+        <div class="service-content">
+          <h3>Web Development</h3>
+          <p>
+            High-performance websites and web applications designed
+            for scalability, security and growth.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-image">
+          <img src="./images/bpo 123.jfif">
+          <div class="service-icon">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+        </div>
+        <div class="service-content">
+          <h3>BPO Services</h3>
+          <p>
+            Reliable outsourcing services delivering operational
+            excellence and measurable business impact.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<script>
+const cards = document.querySelectorAll('.service-card');
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+},{threshold:.2});
+
+cards.forEach(card=>{
+  card.style.opacity=0;
+  card.style.transform="translateY(60px)";
+  card.style.transition="1s";
+  observer.observe(card);
+});
+</script>
+
+<section class="oppty-detail">
+
+  <div class="oppty-tabs">
+    <div class="tab active">
+      <i class="fa-solid fa-layer-group"></i>
+      <span>IT & AI Solutions</span>
+    </div>
+    <div class="tab">
+      <i class="fa-solid fa-box"></i>
+      <span>Web Development</span>
+    </div>
+    <div class="tab">
+      <i class="fa-solid fa-bolt"></i>
+      <span>BPO Excellence</span>
+    </div>
+    <div class="tab">
+      <i class="fa-solid fa-bezier-curve"></i>
+      <span>Digital Growth</span>
+    </div>
+  </div>
+
+  <div class="oppty-content">
+
+    <div class="left">
+      <h2>Empowering Businesses With Smart Technology</h2>
+
+      <p class="lead">
+        Oppty TechHub delivers cutting-edge IT, AI automation, BPO services, and scalable
+        digital solutions designed to accelerate your business success.
+      </p>
+
+      <ul class="features">
+        <li>AI-powered automation for operational efficiency</li>
+        <li>Custom web platforms and enterprise systems</li>
+        <li>High-performance BPO and process optimization</li>
+        <li>Secure, scalable and future-ready infrastructure</li>
+      </ul>
+
+      <p>
+        Our expert teams combine strategy, technology and innovation to build
+        digital ecosystems that drive growth, reduce costs and strengthen your
+        competitive advantage.
+      </p>
+    </div>
+
+    <div class="right">
+      <img src="./images/workplace.jpg" alt="Oppty Team">
+    </div>
+
+  </div>
+
+</section>
+<script>
+const tabs = document.querySelectorAll('.tab');
+const title = document.querySelector('.left h2');
+const lead = document.querySelector('.lead');
+const features = document.querySelector('.features');
+const image = document.querySelector('.right img');
+
+const data = [
+  {
+    title: "Empowering Businesses With Smart Technology",
+    lead: "Oppty TechHub delivers cutting-edge IT, AI automation, BPO services, and scalable digital solutions designed to accelerate your business success.",
+    features: [
+      "AI-powered automation for operational efficiency",
+      "Custom web platforms and enterprise systems",
+      "High-performance BPO and process optimization",
+      "Secure, scalable and future-ready infrastructure"
+    ],
+    img: "./images/oppty-work.jpg"
+  },
+  {
+    title: "World-Class Web & App Development",
+    lead: "We design, build and deploy stunning digital products that convert visitors into customers and ideas into revenue.",
+    features: [
+      "Responsive corporate websites",
+      "E-commerce & SaaS platforms",
+      "UI/UX & product engineering",
+      "Performance and security optimization"
+    ],
+    img: "./images/web-dev.jpg"
+  },
+  {
+    title: "BPO Services That Scale Your Growth",
+    lead: "Our intelligent BPO solutions streamline operations, reduce costs and deliver measurable business outcomes.",
+    features: [
+      "Customer support & CRM services",
+      "Process automation & analytics",
+      "Operational optimization",
+      "24/7 business continuity"
+    ],
+    img: "./images/bpo.jpg"
+  },
+  {
+    title: "Driving Digital Transformation",
+    lead: "We help organizations modernize infrastructure and unlock new growth through innovative technology strategies.",
+    features: [
+      "Cloud & DevOps transformation",
+      "AI & data intelligence",
+      "Enterprise modernization",
+      "Strategic digital consulting"
+    ],
+    img: "./images/digital.jpg"
+  }
+];
+
+function animateChange(index){
+  document.querySelector('.oppty-content').classList.add('fade');
+
+  setTimeout(() => {
+    title.textContent = data[index].title;
+    lead.textContent = data[index].lead;
+    features.innerHTML = data[index].features.map(item => `<li>${item}</li>`).join('');
+    image.src = data[index].img;
+
+    document.querySelector('.oppty-content').classList.remove('fade');
+  }, 300);
+}
+
+tabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => {
+    document.querySelector('.tab.active').classList.remove('active');
+    tab.classList.add('active');
+    animateChange(i);
+  });
+});
+</script>
+
+<section class="oppty-services-list">
+  <div class="container">
+
+    <span class="section-tag">SERVICES</span>
+    <h2 class="section-title">CHECK OUR SERVICES</h2>
+
+    <div class="services-grid">
+
+      <div class="service-box">
+        <div class="icon-box">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="text-box">
+          <h4>AI & Automation</h4>
+          <p>
+            Intelligent automation solutions that streamline operations,
+            reduce costs, and improve business efficiency.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="icon-box">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <div class="text-box">
+          <h4>Web Development</h4>
+          <p>
+            Scalable, secure, and high-performance websites and web
+            applications tailored to your business needs.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="icon-box">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <div class="text-box">
+          <h4>Digital Transformation</h4>
+          <p>
+            Modernize your digital infrastructure with cloud,
+            analytics, and future-ready technology solutions.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="icon-box">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <div class="text-box">
+          <h4>BPO Services</h4>
+          <p>
+            Reliable outsourcing solutions delivering operational
+            excellence and measurable business impact.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="icon-box">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div class="text-box">
+          <h4>IT Consulting</h4>
+          <p>
+            Strategic IT consulting to help organizations plan,
+            implement, and scale technology initiatives.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="icon-box">
+          <i class="fa-solid fa-cloud"></i>
+        </div>
+        <div class="text-box">
+          <h4>Cloud & DevOps</h4>
+          <p>
+            Secure cloud solutions and DevOps practices that enable
+            faster deployments and better scalability.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+const serviceBoxes = document.querySelectorAll('.service-box');
+
+const serviceObserver = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+},{threshold:0.2});
+
+serviceBoxes.forEach(box=>{
+  box.style.opacity = 0;
+  box.style.transform = "translateY(40px)";
+  box.style.transition = "1s ease";
+  serviceObserver.observe(box);
+});
+</script>
+
+<section class="oppty-testimonial">
+  <div class="overlay"></div>
+
+  <div class="testimonial-slider">
+
+    <div class="testimonial active">
+      <img src="./images/sariman.jpg" class="avatar">
+      <h3>Rakesh Kumar</h3>
+      <span>CTO, Enterprise Client</span>
+
+      <div class="stars">★★★★★</div>
+
+      <p>
+        “Oppty TechHub transformed our digital infrastructure with scalable
+        AI automation and robust web solutions. Their professionalism and
+        execution are top-class.”
+      </p>
+    </div>
+
+    <div class="testimonial">
+      <img src="./images/sara willianms.jpg" class="avatar">
+      <h3>Sarah Williams</h3>
+      <span>Product Manager</span>
+
+      <div class="stars">★★★★★</div>
+
+      <p>
+        “Working with Oppty was seamless. From BPO excellence to advanced
+        web development, their team delivered beyond expectations.”
+      </p>
+    </div>
+
+    <div class="testimonial">
+      <img src="./images/It employee png.png" class="avatar">
+      <h3>Ajay Verma</h3>
+      <span>Founder, Startup Partner</span>
+
+      <div class="stars">★★★★★</div>
+
+      <p>
+        “Oppty’s AI-driven approach and corporate mindset helped us scale
+        faster with secure, future-ready technology.”
+      </p>
+    </div>
+
+    <!-- dots -->
+    <div class="dots">
+      <span class="dot active" onclick="goSlide(0)"></span>
+      <span class="dot" onclick="goSlide(1)"></span>
+      <span class="dot" onclick="goSlide(2)"></span>
+    </div>
+
+  </div>
+</section>
+
+<script>
+let index = 0;
+const slides = document.querySelectorAll('.testimonial');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(i){
+  slides.forEach(s => s.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+  slides[i].classList.add('active');
+  dots[i].classList.add('active');
+}
+
+function nextSlide(){
+  index = (index + 1) % slides.length;
+  showSlide(index);
+}
+
+function goSlide(i){
+  index = i;
+  showSlide(index);
+}
+
+setInterval(nextSlide, 5000);
+</script>
+
+<footer class="footer">
+    <div class="footer-top">
+
+        <div class="footer-col">
+            <img src="./images/322343-removebg-preview.png" class="brand-logo">
+            <p>
+              Power up your success with innovative IT, BPO, E-commerce,
+              Web Development, and AI solutions tailored to your vision.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>HYDERABAD LOCATIONS</h4>
+            <p>
+                Hyderabad - Flat number 601,<br>
+                Mahitha’s green galaxy, CBCID Colony, NRSA Colony,<br>
+                Bagath Singh Nagar Phase 2, Kukatpally,<br>
+                Hyderabad, Telangana 500085
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>UDAIPUR LOCATIONS</h4>
+            <p>
+                Udaipur - Plot No: 26, 100 Feet Rd,<br>
+                Shobhagpura, Udaipur,<br>
+                Rajasthan 313011
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>CONTACT US</h4>
+            <a href="mailto:info@oppty.in">info@oppty.in</a><br>
+            <a href="tel:+919491209900">+91 9491209900</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>QUICK LINKS</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="cert-section">
+        <img src="./images/png-clipart-government-of-india-ministry-of-micro-small-and-medium-enterprises-small-business-india-text-logo__1_-removebg-preview (1).png">
+        <img src="./images/Ministry-for-Corporate-AffairS-1-removebg-preview.png">
+        <img src="./images/startup india 1.png">
+    </div>
+
+    <div class="footer-bottom">
+        ©2025 Oppty. All Rights Reserved.
+    </div>
+</footer>
+<div class="bot">
+
+                <a href="https://web.whatsapp.com/" target="_blank"><i class="fa fa-whatsapp"
+                        style="font-size:48px;color:green"></i></a>
+            </div>
+
+
+    </body>
+    </html>
+
+
