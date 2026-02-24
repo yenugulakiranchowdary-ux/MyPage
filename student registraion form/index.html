@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Portal</title>
+<style>
+
+body{
+  font-family: "poppins", sans-serif;
+  background:white;   
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+
+.card{
+  width:500px;
+  background:#ffffff;
+  padding:55px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+.login-style{
+  border-top:6px solid #4da6ff;
+}
+
+
+.form-style{
+  border-top:6px solid #66cc99;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:15px;
+  color:#333;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:9px;
+  margin:6px 0;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+textarea{
+  resize:none;
+}
+
+button{
+  width:104%;
+  padding:9px;
+  margin-top:6px;
+  border:none;
+  border-radius:5px;
+  background:#1a1279;
+  color:white;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#3399ff;
+}
+
+.secondary{
+  background:#999; 
+}
+
+.secondary:hover{
+  background:#777;
+}
+
+.hidden{
+  display:none;
+}
+
+.preview-box{
+  background:#f5faff;
+  padding:10px;
+  margin-top:10px;
+  border-radius:6px;
+  font-size:14px;
+}
+
+img{
+  width:100px;
+  margin-top:5px;
+  border-radius:5px;
+}
+
+.link-btn{
+  background:#66cc99;
+}
+
+.link-btn:hover{
+  background:#4dbd88;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card login-style" id="mainCard">
+
+
+<div id="loginDiv">
+<h2>Login</h2>
+<input type="text" id="loginUser" placeholder="Username">
+<input type="password" id="loginPass" placeholder="Password">
+<button onclick="login()">Login</button>
+<button class="link-btn" onclick="showSignup()">Create Account</button>
+</div>
+
+<div id="signupDiv" class="hidden">
+<h2>Signup</h2>
+<input type="text" id="signupUser" placeholder="Create Username">
+<input type="password" id="signupPass" placeholder="Create Password">
+<button onclick="signup()">Signup</button>
+<button class="secondary" onclick="showLogin()">Back to Login</button>
+</div>
+
+
+<div id="formDiv" class="hidden">
+<h2>Student Registration</h2>
+
+<form id="regForm">
+
+<input type="text" id="uid" placeholder="Unique ID" required>
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="text" id="mobile" placeholder="Mobile Number" required>
+<input type="date" id="dob" required>
+<input type="number" id="age" placeholder="Age" required>
+
+<select id="nationality">
+<option value="">Select Nationality</option>
+<option>Indian</option>
+<option>Other</option>
+</select>
+
+<input type="text" id="aadhaar" placeholder="Aadhaar Number">
+<textarea id="address" placeholder="Address"></textarea>
+<input type="text" id="city" placeholder="City">
+<input type="text" id="state" placeholder="State">
+<input type="text" id="country" placeholder="Country">
+<input type="text" id="pincode" placeholder="Pin Code">
+<input type="text" id="parentName" placeholder="Parent Name">
+<input type="text" id="parentMobile" placeholder="Parent Mobile Number">
+
+<input type="file" id="photo">
+
+<button type="button" onclick="preview()">Preview</button>
+<button type="reset" class="secondary">Reset</button>
+
+</form>
+
+
+<div id="previewDiv" class="hidden">
+<div class="preview-box" id="previewData"></div>
+<button class="secondary" onclick="edit()">Edit</button>
+<button onclick="submitForm()">Submit</button>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let savedUser="";
+let savedPass="";
+let imageData="";
+
+
+function showSignup(){
+  loginDiv.classList.add("hidden");
+  signupDiv.classList.remove("hidden");
+}
+
+
+function showLogin(){
+  signupDiv.classList.add("hidden");
+  loginDiv.classList.remove("hidden");
+}
+
+
+function signup(){
+  savedUser = signupUser.value;
+  savedPass = signupPass.value;
+  alert("Account Created Successfully");
+  showLogin();
+}
+
+function login(){
+  if(loginUser.value === savedUser && loginPass.value === savedPass){
+    loginDiv.classList.add("hidden");
+    formDiv.classList.remove("hidden");
+
+    mainCard.classList.remove("login-style");
+    mainCard.classList.add("form-style");
+  } else {
+    alert("Invalid Login");
+  }
+}
+
+
+document.getElementById("photo").addEventListener("change", function(){
+  let file = this.files[0];
+  let reader = new FileReader();
+  reader.onload = function(e){
+    imageData = e.target.result;
+  }
+  if(file) reader.readAsDataURL(file);
+});
+
+
+function preview(){
+
+  let imgTag = imageData ? "<img src='"+imageData+"'>" : "No Image";
+
+  previewData.innerHTML =
+  "<b>UID:</b> " + uid.value + "<br>" +
+  "<b>Name:</b> " + name.value + "<br>" +
+  "<b>Mobile:</b> " + mobile.value + "<br>" +
+  "<b>DOB:</b> " + dob.value + "<br>" +
+  "<b>Age:</b> " + age.value + "<br>" +
+  "<b>Nationality:</b> " + nationality.value + "<br>" +
+  "<b>Aadhaar:</b> " + aadhaar.value + "<br>" +
+  "<b>Address:</b> " + address.value + "<br>" +
+  "<b>City:</b> " + city.value + "<br>" +
+  "<b>State:</b> " + state.value + "<br>" +
+  "<b>Country:</b> " + country.value + "<br>" +
+  "<b>Pin Code:</b> " + pincode.value + "<br>" +
+  "<b>Parent Name:</b> " + parentName.value + "<br>" +
+  "<b>Parent Mobile:</b> " + parentMobile.value + "<br>" +
+  imgTag;
+
+  regForm.classList.add("hidden");
+  previewDiv.classList.remove("hidden");
+}
+
+
+function edit(){
+  previewDiv.classList.add("hidden");
+  regForm.classList.remove("hidden");
+}
+
+function submitForm(){
+  alert("Thank You for Submitting!");
+  location.reload();
+}
+
+</script>
+
+</body>
+</html>
