@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TO Do List</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:Segoe UI;
+  display:flex;
+  height:100vh;
+  background:#f4f7fb;
+}
+
+/* Sidebar */
+.sidebar{
+  width:220px;
+  background:#111827;
+  color:#fff;
+  padding:25px;
+}
+
+.sidebar h2{
+  margin-bottom:30px;
+}
+
+.sidebar ul{
+  list-style:none;
+}
+
+.sidebar ul li{
+  padding:12px 0;
+  opacity:0.8;
+  cursor:pointer;
+}
+
+.sidebar ul li:hover{
+  opacity:1;
+}
+
+/* Main */
+.main{
+  flex:1;
+  padding:30px;
+  overflow:auto;
+}
+
+/* Header */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+/* Stats Cards */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card h4{
+  color:#666;
+  font-size:14px;
+}
+
+.card p{
+  font-size:24px;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+/* Form */
+.form{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr auto;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+input,select{
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:6px;
+}
+
+button{
+  padding:10px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  color:white;
+  font-weight:500;
+}
+
+.add-btn{ background:#2563eb; }
+.complete-btn{ background:#10b981; }
+.edit-btn{ background:#f59e0b; color:black; }
+.delete-btn{ background:#ef4444; }
+
+/* Search */
+.search-box{
+  margin-bottom:15px;
+}
+
+.search-box input{
+  width:100%;
+}
+
+/* Table */
+table{
+  width:100%;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:12px;
+  border-bottom:1px solid #eee;
+}
+
+th{
+  background:#f9fafb;
+  text-align:left;
+}
+
+.priority-High{color:#ef4444;font-weight:bold;}
+.priority-Medium{color:#f59e0b;font-weight:bold;}
+.priority-Low{color:#10b981;font-weight:bold;}
+
+.completed{
+  text-decoration:line-through;
+  opacity:0.6;
+}
+</style>
+</head>
+<body>
+
+
+<div class="main">
+
+<div class="header">
+  <h1>Dashboard</h1>
+</div>
+
+<div class="stats">
+  <div class="card">
+    <h4>Total Tasks</h4>
+    <p id="total">0</p>
+  </div>
+  <div class="card">
+    <h4>Completed</h4>
+    <p id="completed">0</p>
+  </div>
+  <div class="card">
+    <h4>Pending</h4>
+    <p id="pending">0</p>
+  </div>
+</div>
+
+<form id="taskForm" class="form">
+  <input type="text" id="taskInput" placeholder="Task name" required>
+  <input type="date" id="dueDate">
+  <select id="priority">
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+  </select>
+  <button type="submit" class="add-btn">Add</button>
+</form>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Search tasks...">
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Due Date</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="taskTable"></tbody>
+</table>
+
+</div>
+
+<script>
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+const form = document.getElementById("taskForm");
+const table = document.getElementById("taskTable");
+const searchInput = document.getElementById("searchInput");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const text = document.getElementById("taskInput").value.trim();
+  const date = document.getElementById("dueDate").value;
+  const priority = document.getElementById("priority").value;
+
+  if(text==="") return;
+
+  tasks.push({text,date,priority,completed:false});
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  form.reset();
+  render();
+});
+
+searchInput.addEventListener("keyup", render);
+
+function render(){
+  table.innerHTML="";
+  const searchValue = searchInput.value.toLowerCase();
+
+  let filtered = tasks.filter(task =>
+    task.text.toLowerCase().includes(searchValue)
+  );
+
+  filtered.forEach((task,index)=>{
+    const realIndex = tasks.indexOf(task);
+
+    const row=document.createElement("tr");
+    if(task.completed) row.classList.add("completed");
+
+    row.innerHTML=`
+      <td>${task.text}</td>
+      <td>${task.date || "-"}</td>
+      <td class="priority-${task.priority}">${task.priority}</td>
+      <td>${task.completed?"Done":"Pending"}</td>
+      <td>
+        <button class="complete-btn" onclick="toggle(${realIndex})">✔</button>
+        <button class="edit-btn" onclick="edit(${realIndex})">Edit</button>
+        <button class="delete-btn" onclick="removeTask(${realIndex})">X</button>
+      </td>
+    `;
+
+    table.appendChild(row);
+  });
+
+  document.getElementById("total").innerText = tasks.length;
+  document.getElementById("completed").innerText = tasks.filter(t=>t.completed).length;
+  document.getElementById("pending").innerText = tasks.filter(t=>!t.completed).length;
+}
+
+function toggle(index){
+  tasks[index].completed=!tasks[index].completed;
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  render();
+}
+
+function edit(index){
+  const newText=prompt("Edit Task",tasks[index].text);
+  if(newText){
+    tasks[index].text=newText;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    render();
+  }
+}
+
+function removeTask(index){
+  tasks.splice(index,1);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  render();
+}
+
+render();
+</script>
+
+</body>
+</html>
