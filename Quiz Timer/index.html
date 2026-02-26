@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Development Quiz</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:radial-gradient(circle,#0d1b4c,#000814);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.container{
+  width:700px;
+  text-align:center;
+}
+
+
+.premium-btn{
+  background:linear-gradient(45deg,#ffd60a,#ffb703);
+  color:#000;
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:15px;
+  box-shadow:0 0 15px rgba(255,214,10,0.7);
+  transition:0.3s;
+}
+.premium-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(255,214,10,1);
+}
+
+
+.question-box{
+  background:#001d3d;
+  padding:20px;
+  border-radius:30px;
+  margin-bottom:20px;
+  border:2px solid #ffd60a;
+  font-size:18px;
+}
+
+.options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.option{
+  padding:12px;
+  border-radius:30px;
+  border:2px solid #ffd60a;
+  background:#003566;
+  cursor:pointer;
+}
+.option:hover{background:#00509d;}
+.correct{background:green !important;}
+.wrong{background:red !important;}
+.timer{margin-bottom:10px;font-weight:bold;}
+
+input{
+  padding:10px;
+  width:60%;
+  margin:5px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="login">
+  <h2>💰 Web Development Quiz</h2>
+  <input type="text" id="userid" placeholder="User ID"><br>
+  <input type="password" id="password" placeholder="Password"><br><br>
+  <button onclick="login()" class="premium-btn">Login</button>
+</div>
+
+
+<div id="instructions" style="display:none;">
+  <h2>📋 Instructions</h2>
+  <p>1. Total 10 Questions</p>
+  <p>2. Each Question has 15 seconds</p>
+  <p>3. No negative marking</p>
+  <p>4. Click the correct answer</p><br>
+  <button onclick="startQuiz()" class="premium-btn">Start Quiz</button>
+</div>
+
+
+<div id="quiz" style="display:none;">
+  <div class="timer">Time Left: <span id="time">15</span>s</div>
+  <div class="question-box" id="question"></div>
+  <div class="options" id="options"></div>
+</div>
+
+
+<div id="result" style="display:none;">
+  <h2>Quiz Completed</h2>
+  <p id="score"></p>
+  <p id="accuracy"></p>
+  <button onclick="downloadCertificate()" class="premium-btn">
+    📜 Download Certificate
+  </button>
+</div>
+
+</div>
+
+<script>
+
+
+let current=0;
+let score=0;
+let timeLeft=15;
+let timer;
+let username="";
+
+function login(){
+  const id = document.getElementById("userid").value;
+  const pass = document.getElementById("password").value;
+
+  if(id === "" || pass === ""){
+    alert("Please enter User ID and Password");
+    return;
+  }
+
+  username = id;  
+
+
+  document.getElementById("login").style.display="none";
+  document.getElementById("instructions").style.display="block";
+}
+const questions=[
+{question:"HTML stands for?",options:["Hyper Text Markup Language","High Text","Home Tool","None"],answer:"Hyper Text Markup Language"},
+{question:"CSS is used for?",options:["Structure","Styling","Database","Server"],answer:"Styling"},
+{question:"JS is used for?",options:["Styling","Interactivity","Database","Structure"],answer:"Interactivity"},
+{question:"Which tag for internal CSS?",options:["<style>","<css>","<script>","<link>"],answer:"<style>"},
+{question:"ID selector symbol?",options:[".","#","*","@"],answer:"#"},
+{question:"Select by id method?",options:["getElementById()","query()","get()","select()"],answer:"getElementById()"},
+{question:"Font size property?",options:["font-size","size","text-size","font-style"],answer:"font-size"},
+{question:"JS created by?",options:["Google","Netscape","IBM","Microsoft"],answer:"Netscape"},
+{question:"Link CSS file tag?",options:["<link>","<style>","<script>","<meta>"],answer:"<link>"},
+{question:"Click event?",options:["onclick","onhover","onpress","onmouse"],answer:"onclick"}
+];
+
+function startQuiz(){
+  document.getElementById("instructions").style.display="none";
+  document.getElementById("quiz").style.display="block";
+  loadQuestion();
+}
+
+function loadQuestion(){
+  clearInterval(timer);
+  timeLeft=15;
+  document.getElementById("time").textContent=timeLeft;
+
+  const q=questions[current];
+  document.getElementById("question").textContent=
+    (current+1)+". "+q.question;
+
+  const optionsDiv=document.getElementById("options");
+  optionsDiv.innerHTML="";
+
+  q.options.forEach(option=>{
+    const btn=document.createElement("div");
+    btn.textContent=option;
+    btn.classList.add("option");
+
+    btn.onclick=function(){
+      clearInterval(timer);
+      if(option===q.answer){
+        btn.classList.add("correct");
+        score++;
+      }else{
+        btn.classList.add("wrong");
+      }
+      setTimeout(nextQuestion,1000);
+    };
+
+    optionsDiv.appendChild(btn);
+  });
+
+  timer=setInterval(function(){
+    timeLeft--;
+    document.getElementById("time").textContent=timeLeft;
+    if(timeLeft===0){
+      clearInterval(timer);
+      nextQuestion();
+    }
+  },1000);
+}
+
+function nextQuestion(){
+  current++;
+  if(current<questions.length){
+    loadQuestion();
+  }else{
+    showResult();
+  }
+}
+
+function showResult(){
+  document.getElementById("quiz").style.display="none";
+  document.getElementById("result").style.display="block";
+
+  const accuracy=Math.round((score/questions.length)*100);
+
+  document.getElementById("score").textContent=
+    "Score: "+score+" / "+questions.length;
+
+  document.getElementById("accuracy").textContent=
+    "Accuracy: "+accuracy+"%";
+}
+
+function downloadCertificate(){
+  const doc=new jsPDF();
+  doc.text("Certificate of Completion",20,30);
+  doc.text("Awarded To: "+username,20,50);
+  doc.text("Score: "+score+"/"+questions.length,20,70);
+  doc.save("certificate.pdf");
+}
+</script>
+
+</body>
+</html>
