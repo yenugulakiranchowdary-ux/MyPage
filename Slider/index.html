@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Slider</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial;
+}
+
+.slider{
+  width:100%;
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.slide{
+  display:none;
+  width:100%;
+  height:100%;
+  position:absolute;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+.content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  text-align:center;
+  color:white;
+  background:rgba(0,0,0,0.4);
+  padding:20px 40px;
+  border-radius:10px;
+}
+
+.content h1{
+  font-size:48px;
+  margin-bottom:15px;
+}
+
+.content button{
+  padding:10px 20px;
+  font-size:18px;
+  border:none;
+  background:#ff5722;
+  color:white;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+
+.prev, .next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:white;
+  border:none;
+  padding:15px 20px;
+  cursor:pointer;
+  font-size:22px;
+}
+
+.prev{ left:20px; }
+.next{ right:20px; }
+
+</style>
+</head>
+<body>
+
+<div class="slider" id="slider"></div>
+
+<button class="prev" onclick="prevSlide()">❮</button>
+<button class="next" onclick="nextSlide()">❯</button>
+
+<script>
+
+
+let imageData = [
+  {
+    src:"https://img2.wallspic.com/previews/5/0/9/0/70905/70905-palm_trees_on_beach_shore_during_daytime-x750.jpg",
+    title:"Maldives",
+    button:"Book Now"
+  },
+  {
+    src:"https://img3.wallspic.com/crops/6/2/1/7/2/127126/127126-urban_area-cityscape-river-sky-metropolis-3840x2160.jpg",
+    title:"Paris",
+    button:"Explore"
+  },
+  {
+    src:"https://img3.wallspic.com/previews/7/2/2/2/0/102227/102227-farmhouse-house-wilderness-desert-mount_scenery-x750.jpg",
+    title:"Swiss Alps",
+    button:"Discover"
+  },
+  {
+    src:"https://img3.wallspic.com/previews/8/5/8/7/87858/87858-city-sky-daytime-cloud-bangkok-x750.jpg",
+    title:"New York",
+    button:"Visit"
+  },
+  {
+    src:"https://img3.wallspic.com/previews/6/7/0/9/69076/69076-tropics-atoll-lagoon-hotel-resort-x750.jpg",
+    title:"Bali",
+    button:"Plan Trip"
+  }
+];
+
+let slider = document.getElementById("slider");
+
+imageData.forEach(function(item){
+
+  let slide = document.createElement("div");
+  slide.className = "slide";
+
+  slide.innerHTML = `
+    <img src="${item.src}">
+    <div class="content">
+      <h1>${item.title}</h1>
+      <button>${item.button}</button>
+    </div>
+  `;
+
+  slider.appendChild(slide);
+});
+
+let slides = document.querySelectorAll(".slide");
+let current = 0;
+
+slides[current].style.display = "block";
+
+function showSlide(index){
+  slides.forEach(function(slide){
+    slide.style.display = "none";
+  });
+
+  slides[index].style.display = "block";
+}
+
+function nextSlide(){
+  current++;
+  if(current >= slides.length){
+    current = 0;
+  }
+  showSlide(current);
+}
+
+function prevSlide(){
+  current--;
+  if(current < 0){
+    current = slides.length - 1;
+  }
+  showSlide(current);
+}
+
+</script>
+
+</body>
+</html>
